@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +29,7 @@
                         <li><a href="">Account</a>
                             <div class="dropdown-content">
                                 <a href="#">User Profile</a>
-                                <a href="../views/LogInpage.php">Log Out</a>
+                                <a href="../logout.php">Log Out</a>
                             </div>
                         </div>
                     </ul>

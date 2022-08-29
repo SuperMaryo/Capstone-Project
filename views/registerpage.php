@@ -54,7 +54,7 @@ if(isset($_POST['submit'])){
                         <li><a href="../views/aboutpage.html">About</a></li>
                         <li><a href="../views/contactpage.html">Contact</a></li>
                         <div class="dropdown">
-                        <li><a href="">Account</a>
+                        <li><a href="">Account</a></li>
                             <div class="dropdown-content">
                                 <a href="../views/LogInpage.php">Log In</a>
                                 <a href="../views/registerpage.php">Register</a>
