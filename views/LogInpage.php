@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 $usr_role = $row["role"];
             }
 
-            if(md5($password = $usr_password)) {
+            if(md5($password) == $usr_password){
                 session_start();
 
                 $_SESSION['role'] = $usr_role;
@@ -48,10 +48,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             }
             else {
-
+                    echo "<script>alert('./.'); </script>";
                  }
         }
     }
+    else
+        {
+            echo "<script>alert('./.');</script>";
+        }
 }
 
 ?>
@@ -87,7 +91,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="../views/homepage.html">Home</a></li>
+                        <li><a href="../views/homepage.php">Home</a></li>
                         <li><a href="../views/products.html">Products</a></li>
                         <li><a href="../views/aboutpage.html">About</a></li>
                         <li><a href="../views/contactpage.html">Contact</a></li>

@@ -116,6 +116,10 @@ form .button input[type="submit"]:hover
 {
     background: linear-gradient(#2da782, #2fccf8);
 }
+
+.already a span{
+    background-color: #2da782 ;
+}
 @media (max-width: 584px) {
     .small-container {
         max-width: 100%;

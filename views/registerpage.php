@@ -12,8 +12,11 @@ if(isset($_POST['submit'])){
     $password = $_POST['password_1'];
     $gender = $_POST['gender'];
 
+    // encrypting password
+
+    $hash_pass = md5($password);
     $sql ="INSERT INTO `user`(`name`, `username`, `email`, `phonenumber`, `password`, `gender`) VALUES 
-    ('$fname', '$usrname', '$emailid', '$pnum', '$password', '$gender')";
+    ('$fname', '$usrname', '$emailid', '$pnum', '$hash_pass', '$gender')";
 
     $conn->query($sql) or die ($conn->error);
 
@@ -49,7 +52,7 @@ if(isset($_POST['submit'])){
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="../views/homepage.html">Home</a></li>
+                        <li><a href="../views/homepage.php">Home</a></li>
                         <li><a href="../views/products.html">Products</a></li>
                         <li><a href="../views/aboutpage.html">About</a></li>
                         <li><a href="../views/contactpage.html">Contact</a></li>
@@ -97,8 +100,8 @@ if(isset($_POST['submit'])){
                     </div>
                 </div>
                 <div class="user-gender">
-                    <input type="radio" name="gender" value="Male" id="dot-1" required>
-                    <input type="radio" name="gender" value="Female" id="dot-2" required>
+                    <input type="radio" name="gender" value="male" id="dot-1" required>
+                    <input type="radio" name="gender" value="female" id="dot-2" required>
                     <input type="radio" name="gender" value="" id="dot-3" required>
                     <span class="gender-title">Gender</span>
                     <div class="category">
@@ -118,6 +121,9 @@ if(isset($_POST['submit'])){
                 </div>
                 <div class="button">
                     <input type="submit" name="submit" value="Register">
+                </div>
+                <div class="already">
+                    <p>Already have an account?</p><span><a class="alrdy" href="LogInpage.php"> Log in.</a></span>
                 </div>
             </form>
         </div>
