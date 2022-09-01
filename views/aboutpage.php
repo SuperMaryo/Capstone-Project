@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products Page</title>
+    <title>About Page</title>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../static/css/global.css">
     <link rel="stylesheet" href="../static/css/home.css">
@@ -21,15 +21,14 @@
                 <nav>
                     <ul>
                         <li><a href="../views/homepage.php">Home</a></li>
-                        <li><a href="../views/products.html">Products</a></li>
-                        <li><a href="../views/aboutpage.html">About</a></li>
-                        <li><a href="../views/contactpage.html">Contact</a></li>
+                        <li><a href="../views/products.php">Products</a></li>
+                        <li><a href="../views/aboutpage.php">About</a></li>
+                        <li><a href="../views/contactpage.php">Contact</a></li>
                         <div class="dropdown">
                         <li><a href="">Account</a>
                             <div class="dropdown-content">
                                 <a href="#">User Profile</a>
-                                <a href="../views/LogInpage.php">Log In</a>
-                                <a href="../views/registerpage.php">Register</a>
+                                <a href="../logout.php">Log out</a>
                             </div>
                         </div>
                     </ul>

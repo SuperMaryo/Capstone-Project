@@ -24,18 +24,8 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="../views/homepage.html">Home</a></li>
-                    <li><a href="../views/products.html">Products</a></li>
-                    <li><a href="../views/aboutpage.html">About</a></li>
-                    <li><a href="../views/contactpage.html">Contact</a></li>
-                    <div class="dropdown">
-                    <li><a href="">Account</a>
-                        <div class="dropdown-content">
-                            <a href="#">User Profile</a>
-                            <a href="../views/LogInpage.php">Log In</a>
-                            <a href="../views/registerpage.php">Register</a>
-                        </div>
-                    </div>
+                    <li><a href="../views/LogInpage.php">Log In</a></li>
+                    <li><a href="../views/registerpage.php">Register</a></li>
                 </ul>
             </nav>
         </div>

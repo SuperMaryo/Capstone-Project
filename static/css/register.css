@@ -83,6 +83,7 @@ form .user-gender .category {
     margin-right: 10px;
     border: 5px solid transparent;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 #dot-1:checked ~ .category label .one,
 #dot-2:checked ~ .category label .two,
@@ -106,6 +107,7 @@ form .button input[type="submit"]
     outline: none;
     color: #fff;
     border: none;
+    cursor: pointer;
     font-size: 18px;
     font-weight: 500;
     letter-spacing: 1px;
@@ -116,9 +118,16 @@ form .button input[type="submit"]:hover
 {
     background: linear-gradient(#2da782, #2fccf8);
 }
-
-.already a span{
-    background-color: #2da782 ;
+form .already {
+    margin-top: -20px;
+}
+.already  a {
+    color: #2da782;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 @media (max-width: 584px) {
     .small-container {
