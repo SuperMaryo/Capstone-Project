@@ -1,6 +1,7 @@
+
 <?php
 
-include_once "../connections.php";
+include "../connections.php";
 
 $conn = connection();
 
@@ -48,18 +49,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             }
             else {
-                    echo "<script>alert('./.'); </script>";
+                echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!'
+                    })
+                </script>";
                  }
         }
     }
     else
         {
-            echo "<script>alert('./.');</script>";
+            echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                    })
+                </script>";
         }
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +80,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In Page</title>
-    <link rel="icon" type="image/x-icon" href="../assets/Global_Assets/A's Logo.png">
+    <link rel="icon" type="image/x-icon" href="../assets/Global_Assets/favicon.png">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../static/css/global.css">
     <link rel="stylesheet" href="../static/css/login.css">
@@ -81,14 +93,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- sweet alert -->
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../sweetalert2/jquery-3.6.1.min.js"></script>
+    <script src="../sweetalert2/sweetalert2.all.min.js"></script>
+
 </head>
 <body>
     <div class="header">
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <a href="../views/startpage.html"><img src="../assets/Global_Assets/A's Logo.png" width="140px"></a>
+                    <a href="../views/startpage.php"><img src="../assets/Global_Assets/A's Logo.png" width="80px"></a>
                 </div>
                 <nav>
                 </nav>
@@ -103,7 +118,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="lgn-details">
                     <div class="input-box">
                         <span class="details">Username</span>
-                        <input type="text" name="usrname" placeholder="Enter your username">
+                        <input type="text" name="usrname" placeholder="Enter your username" value="<?php echo $uname ?>">
                         <span class="error"><?php echo $unameErr?></span>
                     </div>
                     <div class="input-box">

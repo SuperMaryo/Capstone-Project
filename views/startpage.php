@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,22 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Start Page</title>
+    <link rel="icon" type="image/x-icon" href="../assets/Global_Assets/favicon.png">
     <!-- CDN -->
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../static/css/global.css">
     <link rel="stylesheet" href="../static/css/start.css">
+    <link rel="stylesheet" href="../static/css/lgnform.css">
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- JavaScript -->
+</head>
 <body>
-
     <div class="header">
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <a href="../views/startpage.html"><img src="../assets/Global_Assets/A's Logo.png" width="140px"></a>
+                <a href="../views/startpage.php"><img src="../assets/Global_Assets/A's Logo.png" width="140px"></a>
             </div>
             <nav>
                 <ul>
@@ -65,13 +68,6 @@
         <div class="col-4">
             <img src="../assets/Start_Assets/prod1.jpg">
             <h4>Kitchen Cabinets</h4>
-            <div class="rating">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star"></i>
-            </div>
         </div>
         <div class="col-4">
             <img src="../assets/Start_Assets/prod2.jpg">
@@ -125,7 +121,7 @@
                 </ul>
             </div>
             <div class="footer-col-2">
-                <img src="../assets/Global_Assets/A's Logo.png">
+                <img src="../assets/Global_Assets/new.png">
                 <p>Home Improvement with high quality and affordable Glass & Aluminum Products.</p>
             </div>
             <div class="footer-col-3">

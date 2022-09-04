@@ -37,7 +37,7 @@ if(isset($_POST['submit'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
-    <link rel="icon" type="image/x-icon" href="../assets/Global_Assets/A's Logo.png">
+    <link rel="icon" type="image/x-icon" href="../assets/Global_Assets/favicon.png">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../static/css/global.css">
     <link rel="stylesheet" href="../static/css/register.css">
@@ -49,7 +49,7 @@ if(isset($_POST['submit'])){
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <a href="../views/startpage.html"><img src="../assets/Global_Assets/A's Logo.png" width="140px"></a>
+                    <a href="../views/startpage.php"><img src="../assets/Global_Assets/A's Logo.png" width="140px"></a>
                 </div>
                 <nav>
                 </nav>
@@ -75,12 +75,12 @@ if(isset($_POST['submit'])){
                         <input type="text" placeholder="Enter your username" name="username" required>
                     </div>
                     <div class="input-box">
-                        <span class="details">Password</span>
-                        <input type="password" placeholder="Enter your password" name="password_1" required>
-                    </div>
-                    <div class="input-box">
                         <span class="details">Email</span>
                         <input type="email" placeholder="Enter your email" name="email">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Password</span>
+                        <input type="password" placeholder="Enter your password" name="password_1" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Confirm Password</span>
@@ -90,7 +90,7 @@ if(isset($_POST['submit'])){
                 <div class="user-gender">
                     <input type="radio" name="gender" value="male" id="dot-1" required>
                     <input type="radio" name="gender" value="female" id="dot-2" required>
-                    <input type="radio" name="gender" value="" id="dot-3" required>
+                    <input type="radio" name="gender" value="not specified" id="dot-3" required>
                     <span class="gender-title">Gender</span>
                     <div class="category">
                         <label for="dot-1">
@@ -111,7 +111,7 @@ if(isset($_POST['submit'])){
                     <input type="submit" name="submit" value="Register">
                 </div>
                 <div class="already">
-                    <p>Already have an account?</p><a class="alrdy" href="LogInpage.php"> Log in.</a>
+                    <p>Already have an account?</p><a class="alrdy" href="../views/LogInpage.php"> Log in.</a>
                 </div>
             </form>
         </div>

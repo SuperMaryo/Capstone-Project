@@ -4,7 +4,7 @@ body .rgstrcontainer{
     justify-content: center;
     align-items: center;
     background: radial-gradient(#2fccf8, #fff);
-    padding-left: 20px;
+    padding: 50px 0;
 }
 .small-container {
     max-width: 700px;
@@ -25,7 +25,7 @@ body .rgstrcontainer{
     position: absolute;
     height: 3px;
     width: 30px;
-    background: radial-gradient(#2fccf8, #2da782);
+    background: #2fccf8;
     left: 0;
     bottom: 0;
 }
@@ -53,14 +53,8 @@ form .user-details .input-box {
     border: 1px solid #ccc;
     padding: 15px;
     font-size: 16px;
-    transition: all 0.3s ease;
 }
-.user-details .input-box input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus,
-.user-details .input-box input[type="text"]:valid, input[type="number"]:valid, input[type="password"]:valid
-{
-    border-color: #2da782;
-    border-bottom-width: 2px;
-}
+
 form .user-gender .gender-title {
     font-size: 20px;
     font-weight: 500;
@@ -90,7 +84,7 @@ form .user-gender .category {
 #dot-3:checked ~ .category label .three
  {
     border-color: #d9d9d9;
-    background: #2da782;
+    background: #2fccf8;
 }
 form input[type="radio"]
 {
@@ -112,17 +106,24 @@ form .button input[type="submit"]
     font-weight: 500;
     letter-spacing: 1px;
     border-radius: 5px;
-    background: linear-gradient(#2fccf8, #2da782);
+    background: #2fccf8;
+    margin-top: -50px;
 }
 form .button input[type="submit"]:hover 
 {
-    background: linear-gradient(#2da782, #2fccf8);
+    opacity: 0.8;
 }
 form .already {
-    margin-top: -20px;
+    margin-top: -40px;
+    opacity: 0.8;
 }
 .already  a {
-    color: #2da782;
+    color: #2fccf8;
+    font-size: 20px;
+    font-weight: 500;
+}
+.already  a:hover {
+    color: #555;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

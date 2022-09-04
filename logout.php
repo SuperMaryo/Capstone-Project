@@ -3,5 +3,5 @@ session_start();
 session_unset();
 session_destroy();
 
-header("Location: views/LogInpage.php");
+header("Location: views/startpage.php");
 ?>
