@@ -3,7 +3,7 @@ body .rgstrcontainer{
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(#2fccf8, #fff);
+    background: #fff;
     padding: 50px 0;
 }
 .small-container {
@@ -13,6 +13,7 @@ body .rgstrcontainer{
     padding: 25px 30px;
     border-radius: 5px;
     height: auto;
+    border: 1px solid #2fccf8;
 }
 .small-container .title {
     font-size: 25px;

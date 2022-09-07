@@ -49,25 +49,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             }
             else {
-                echo "<script>
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!'
-                    })
-                </script>";
+                echo '<script>alert("Invalid Input!")</script>';
+                echo '<script>window.location"../views/LogInpage.php"</script>';
                  }
         }
     }
     else
         {
-            echo "<script>
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!',
-                    })
-                </script>";
+            echo '<script>alert("Invalid Input!")</script>';
+            echo '<script>window.location"../views/LogInpage.php"</script>';
         }
 }
 
@@ -119,12 +109,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="input-box">
                         <span class="details">Username</span>
                         <input type="text" name="usrname" placeholder="Enter your username" value="<?php echo $uname ?>">
-                        <span class="error"><?php echo $unameErr?></span>
+                        <?php echo $unameErr?>
                     </div>
                     <div class="input-box">
                         <span class="details">Password</span>
                         <input type="password" name="passwrd" placeholder="Enter your password">
-                        <span class="error"><?php echo $passwrdErr?></span>
+                        <?php echo $passwrdErr?>
                     </div>
                 </div>
                 <div class="button">

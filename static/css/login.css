@@ -5,7 +5,7 @@ body .lgnContainer{
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(#2fccf8, #fff);
+    background: #fff;
     padding-left: 20px;
 }
 .lgnsmall-container {
@@ -15,6 +15,7 @@ body .lgnContainer{
     padding: 25px 30px;
     border-radius: 5px;
     margin-top: -125px;
+    border: 1px solid #2fccf8;
 }
 .lgnsmall-container .title {
     font-size: 25px;
@@ -88,6 +89,9 @@ form .rgstr {
 }
 form .rgstr:hover {
     color: #555;
+}
+#error {
+    color: red;
 }
 @media (max-width: 584px) {
     .lgnsmall-container {

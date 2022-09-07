@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services page</title>
+    <title>About Us page</title>
     <link rel="icon" type="image/x-icon" href="../assets/Global_Assets/favicon.png">
     <!-- CDN -->
 
@@ -30,7 +30,7 @@
                     <li><a href="../views/homepage.php">Home<span class="line">|</span></a></li>
                     <li><a href="../views/products.php">Products<span class="line">|</span></a></li>
                     <li><a href="../views/completed.php">Completed Projects<span class="line">|</span></a></li>
-                    <li><a href="../views/services.php" style="font-weight: 600;">Services<i class="bi bi-chevron-compact-down"></i><span class="line">|</span></a></li>
+                    <li><a href="../views/services.php">Services<i class="bi bi-chevron-compact-down"></i><span class="line">|</span></a></li>
                     <div class="dropdown">
                         <li><a href="">Account<i class="bi bi-chevron-compact-down"></i></a></li>
                             <div class="dropdown-content">
