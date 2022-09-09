@@ -1,9 +1,7 @@
 /* header */
-.header .row {
-    margin-top: 40px;
-}
-.header .row1 {
-    margin-top: 40px;
+.home {
+    background: radial-gradient(#fff, #2fccf8);
+    margin-top: 5px;
 }
 /* Welcome Column */
 .row {
@@ -16,7 +14,7 @@
 .col-2 {
     flex-basis: 50%;
     min-width: 300px;
-    margin-top: -60px;
+    margin-top: -30px;
 }
 .col-2 img {
     max-width: 100%;
@@ -25,7 +23,7 @@
 .col-2 h1 {
     font-size: 45px;
     line-height: 60px;
-    margin: 25px auto;
+    margin: 30px auto;
 }
 /* About Us Column */
 .col-2-5 {
@@ -144,6 +142,7 @@ h4 {
     margin: auto;
     padding-left: 25px;
     padding-right: 25px;
+    position: relative;
 }
 .row1 {
     display: flex;
@@ -152,6 +151,8 @@ h4 {
     flex-wrap: wrap;
     position: relative;
     margin: 20px 10px;
+    margin-top: -50px;
+    flex-direction: row;
 }
 
 /* products column */
@@ -172,4 +173,81 @@ h4 {
 }
 
 /* services column */
+.row2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    position: relative;
+    margin: 20px 10px;
+    margin-top: -50px;
+    flex-direction: row;
+    height: 550px;
+    overflow: hidden;
+}
+.col-4 {
+    flex-basis: 60%;
+    min-width: 250px;
+    margin-top: -390px;
+    margin-bottom: 70px;
+    justify-content: space-between;
+    position: relative;
+}
 
+.col-4 button {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    cursor: pointer;
+    font-weight: bold   ;
+    margin-left: 50px;
+    font-size: 20px;
+    color: #555;
+}
+.services-content {
+    display: flex;
+    margin-top: 150px;
+    justify-content: center;
+    position: absolute;
+    transform: translateX(1000px);
+    transition: 0.3s;
+}
+.content-img img {
+    height: 300px;
+    width: 250px;
+    padding: 10px;
+    border: none;
+}
+.content-img .view-btn2 {
+    display: inline-block;
+    background: #2fccf8;
+    color: #fff;
+    padding: 5px 15px;
+    margin-left: 60px;
+    margin-top: 10px;
+    border-radius: 3px;
+    transition: background 0.5s;
+    font-size: 15px;
+}
+.view-btn2:hover {
+    opacity: 0.5;
+}
+.view-btn2 i {
+    margin-left: 5px;
+}
+
+.content-img h4 {
+    font-size: 20px;
+}
+.vertical {
+    height: 450px;
+    width: 1px;
+    color: #555;
+}
+#content1 {
+    transform: translateX(0);
+}
+#but1 {
+    color: #2fccf8;
+}

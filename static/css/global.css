@@ -59,7 +59,8 @@ p {
     color: #555;
 }
 .header {
-    background: radial-gradient(#2fccf8, #fff);
+    background: #2fccf8;
+    height: 150px;
 }
 .dropdown {
     position: relative;
@@ -88,7 +89,6 @@ p {
 }
 .dropdown .dropdown-content a:hover {
     background: #2fccf8;
-    opacity: 50%;
     border-radius: 3px;
 }
 .dropdown:hover .dropdown-content 

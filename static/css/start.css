@@ -1,9 +1,7 @@
 /* header */
-.header .row {
-    margin-top: 40px;
-}
-.header .row1 {
-    margin-top: 40px;
+.home {
+    background: radial-gradient(#fff, #2fccf8);
+    margin-top: 30px;
 }
 /* Welcome Column */
 .row {
@@ -16,7 +14,7 @@
 .col-2 {
     flex-basis: 50%;
     min-width: 300px;
-    margin-top: -60px;
+    margin-top: -30px;
 }
 .col-2 img {
     max-width: 100%;
@@ -25,7 +23,7 @@
 .col-2 h1 {
     font-size: 45px;
     line-height: 60px;
-    margin: 25px auto;
+    margin: 30px auto;
 }
 /* About Us Column */
 .col-2-5 {
@@ -35,7 +33,7 @@
 }
 .col-2-5 img {
     max-width: 100%;
-    padding: 50px 0;
+    padding: 70px 20px;
 }
 
 .about {
@@ -51,13 +49,16 @@
     min-width: 250px;
     margin-top: -50px;
     margin-bottom: 80px;
-    margin-left: 80px;
 }
 
 .col-5 .bi {
     font-size: 50px;
     color: #2fccf8;
-    margin-left: 50px;
+    margin-left: 100px;
+}
+
+.col-5 h3, .why {
+    text-align: center;
 }
 /* Others */
 h4 {
@@ -132,6 +133,9 @@ h4 {
 .view-btn:hover {
     opacity: 0.5;
 }
+.view-btn i {
+    margin-left: 5px;
+}
 /* For col-3 and 4 */
 .small-container1 {
     max-width: 1080px;
@@ -155,7 +159,7 @@ h4 {
 .col-3 {
     flex-basis: 30%;
     min-width: 250px;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
     justify-content: space-between;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
 }
@@ -166,4 +170,3 @@ h4 {
 }
 
 /* services column */
-

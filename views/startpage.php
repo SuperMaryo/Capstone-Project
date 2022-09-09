@@ -1,3 +1,8 @@
+<?php 
+include "../connections.php"
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,6 +45,10 @@
                 </ul>
             </nav>
         </div>
+    </div> 
+</div>
+<div class="home">
+    <div class="small-container">
         <div class="row">
             <div class="col-2">
                 <h1>Welcome to A's Glass & <br>Aluminum Works</h1>
@@ -51,7 +60,7 @@
                 <img src="../assets/Global_Assets/glass-building.png">
             </div>
         </div>
-    </div> 
+    </div>
 </div>
 <!-- Our Products -->
 <div class="products">
