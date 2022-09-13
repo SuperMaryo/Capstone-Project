@@ -1,6 +1,6 @@
 <?php
 
-include_once "../connections.php";
+include "../connections.php";
 
 $conn = connection();
 
@@ -62,17 +62,17 @@ if(isset($_POST['submit'])){
             <div class="title">Registration</div>
             <form action="#" method="POST">
                 <div class="user-details">
+                        <div class="input-box">
+                            <span class="details">First Name</span>
+                            <input type="text" placeholder="Enter your name" name="fullname" required>
+                        </div>
                     <div class="input-box">
-                        <span class="details">Full Name</span>
-                        <input type="text" placeholder="Enter your name" name="fullname" required>
+                        <span class="details">Last Name</span>
+                        <input type="text" placeholder="Enter your username" name="username" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Phone Number</span>
-                        <input type="number" placeholder="Enter your phone number" name="pnumber" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Username</span>
-                        <input type="text" placeholder="Enter your username" name="username" required>
+                        <input type="number" placeholder="Enter your phone number" name="pnumber" required pattern="[0-9]{11}" oninvalid="this.setCustomValidity('Enter 11 digit number')" oninput="this.setCustomValidity('')">
                     </div>
                     <div class="input-box">
                         <span class="details">Email</span>

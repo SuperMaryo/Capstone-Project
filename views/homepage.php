@@ -11,9 +11,10 @@
     <link rel="stylesheet" href="../static/css/global.css">
     <link rel="stylesheet" href="../static/css/home.css">
     <!-- fonts -->
+    <link rel="stylesheet" href="../static/css/adminpage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <!-- JavaScript -->
     <script type="text/javascript" src="../static/js/homeScript.js"></script>
 </head>
@@ -26,30 +27,25 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="../views/homepage.php" style="font-weight: 600;">Home<span class="line">|</span></a></li>
-                    <li><a href="../views/products.php">Products<span class="line">|</span></a></li>
-                    <li><a href="../views/completed.php">Completed Projects<span class="line">|</span></a></li>
-                    <li><a href="../views/services.php">Services<i class="bi bi-chevron-compact-down"></i><span class="line">|</span></a></li>
-                    <div class="dropdown">
-                        <li><a href="">Account<i class="bi bi-chevron-compact-down"></i></a></li>
-                            <div class="dropdown-content">
-                                <a href="#">User Profile<i class="bi bi-person-circle"></i></a>
-                                <a href="../logout.php">Log out<i class="bi bi-box-arrow-in-right"></i></a>
-                            </div>
-                    </div>
+                    <li><a href="../views/homepage.php" style="font-weight: 600;">Home</a></li>
+                    <li><a href="../views/products.php">Products</a></li>
+                    <li><a href="../views/completed.php">Completed Projects</a></li>
+                    <li><a href="../views/services.php">Services<i class="bi bi-chevron-compact-down"></i></a></li>
+                    <li><a href="../views/aboutpage.php">About</a></li>
                 </ul>
             </nav>
         </div>
     </div> 
 </div>
+<!-- Home Banner -->
 <div class="home">
     <div class="small-container">
         <div class="row">
             <div class="col-2">
                 <h1>Welcome to A's Glass & <br>Aluminum Works</h1>
                 <p>We offer high quality service together <br> with high quality products</p>
-                <a href="#" class="btn">Book Now</a>
-                <a href="#" class="btn">Read More</a>
+                <a href="../views/bookingform.php" class="btn">Book Now</a>
+                <a href="../views/aboutpage.php" class="btn">Read More</a>
             </div>
             <div class="col-2">
                 <img src="../assets/Global_Assets/glass-building.png">
@@ -62,20 +58,30 @@
     <div class="small-container1">
         <h2 class="title">Our Products</h2>
         <div class="row1">
-            <div class="col-3">
-                <img src="../assets/Home_Assets/products/vanitymirror1.jpg" alt="vanity">
-                <h4>Vanity Mirror</h4>
-                <a href="#" class="order-btn">Order Now</a>
-            </div>
-            <div class="col-3">
-                <img src="../assets/Home_Assets/products/kitchencab1.jpg" alt="kcabinet">
-                <h4>Kitchen Cabinet</h4>
-                <a href="#" class="order-btn">Order Now</a>
-            </div>
-            <div class="col-3">
-                <img src="../assets/Home_Assets/products/clothescab1.jpg" alt="Ccabinet">
-                <h4>Clothes Cabinet</h4>
-                <a href="#" class="order-btn">Order Now</a>
+            <div class="product-content">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/products/vanitymirror1.jpg" alt="vanity">
+                    <h4>Vanity Mirror</h4>
+                    <a href="#" class="order-btn">Order Now</a>
+                </div>
+                <hr class="vertical">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/products/kitchencab1.jpg" alt="kcabinet">
+                    <h4>Kitchen Cabinet</h4>
+                    <a href="#" class="order-btn">Order Now</a>
+                </div>
+                <hr class="vertical">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/products/clothescab1.jpg" alt="Ccabinet">
+                    <h4>Clothes Cabinet</h4>
+                    <a href="#" class="order-btn">Order Now</a>
+                </div>
+                <hr class="vertical">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/products/readymirror1.jpg" alt="Rmirror">
+                    <h4>Ready made mirror</h4>
+                    <a href="#" class="order-btn">Order Now</a>
+                </div>
             </div>
             <a href="../views/products.php" class="view-btn">View More<i class="bi bi-chevron-double-right"></i></a>
         </div>
@@ -89,7 +95,7 @@
         <div class="col-4">
         <button id="but1" onclick="openDoor()">Door</button>
         <button id="but2" onclick="openWindow()">Window</button>
-        <button id="but3" onclick="openProduct()">Product Installation</button>
+        <button id="but3" onclick="openProduct()">Other</button>
         <hr>
         </div>
             <!-- Door tab -->
@@ -97,25 +103,25 @@
                 <div class="content-img">
                     <img src="../assets/Home_Assets/Services/door/slidingdoor1.jpg" alt="sliding door">
                     <h4>Installation of sliding door</h4>
-                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                    <a href="../views/services.php" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
                 </div>
                 <hr class="vertical">
                 <div class="content-img">
                     <img src="../assets/Home_Assets/Services/door/swingdoorwF.jpg " alt="swingdoorw/frame">
                     <h4>Installation of swing door with frame</h4>
-                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                    <a href="../views/services.php" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
                 </div>
                 <hr class="vertical">
                 <div class="content-img">
                     <img src="../assets/Home_Assets/Services/door/screendoor1.jpg " alt="swingdoorw/oframe">
                     <h4>Installation of screen door</h4>
-                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                    <a href="../views/services.php" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
                 </div>
                 <hr class="vertical">
                 <div class="content-img">
                     <img src="../assets/Home_Assets/Services/door/doorrealignment.jpg " alt="Realignment">
                     <h4>Glass door re-alignment</h4>
-                    <a href="#" class="view-btn2" style="margin-top: 40px;">View More<i class="bi bi-chevron-double-right"></i></a>
+                    <a href="../views/services.php" class="view-btn2" style="margin-top: 40px;">View More<i class="bi bi-chevron-double-right"></i></a>
                 </div>
             </div>
             <!-- window tab -->
@@ -123,25 +129,25 @@
                 <div class="content-img">
                     <img src="../assets/Home_Assets/Services/window/slidingwindow1.jpg" alt="sliding window">
                     <h4 >Installation of sliding window</h4>
-                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                    <a href="../views/services.php" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
                 </div>
                 <hr class="vertical">
                 <div class="content-img">
                     <img src="../assets/Home_Assets/Services/window/awningwindow1.jpg " alt="awning window">
                     <h4 >Installation of awning window</h4>
-                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                    <a href="../views/services.php" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
                 </div>
                 <hr class="vertical">
                 <div class="content-img">
                     <img src="../assets/Home_Assets/Services/window/jalousiewindow1.jpg " alt="swingdoorw/oframe">
                     <h4>Installation of jalousie window</h4>
-                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                    <a href="../views/services.php" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
                 </div>
                 <hr class="vertical">
                 <div class="content-img">
                     <img src="../assets/Home_Assets/Services/window/fixedglass1.jpg " alt="Realignment">
                     <h4>Installation of fixed glass window</h4>
-                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                    <a href="../views/services.php" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
                 </div>
             </div>
             <!-- Products installation tab -->
@@ -149,25 +155,25 @@
                 <div class="content-img">
                     <img src="../assets/Home_Assets/Services/product/gymmirror1.jpg" alt="gym mirror">
                     <h4>Installation of Gym Mirrors</h4>
-                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                    <a href="../views/services.php" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
                 </div>
                 <hr class="vertical">
                 <div class="content-img">
                     <img src="../assets/Home_Assets/Services/product/partition1.jpg " alt="drywall partitions">
                     <h4>Installation of drywall partitions</h4>
-                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                    <a href="../views/services.php" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
                 </div>
                 <hr class="vertical">
                 <div class="content-img">
                     <img src="../assets/Home_Assets/Services/product/ceiling1.jpg " alt="swingdoorw/oframe">
                     <h4>Installation of all kinds of ceiling</h4>
-                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                    <a href="../views/services.php" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
                 </div>
                 <hr class="vertical">
                 <div class="content-img">
                     <img src="../assets/Home_Assets/Services/product/kitchencabinet1.jpg" alt="Realignment">
                     <h4>Installation of kitchen Cabinets</h4>
-                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                    <a href="../views/services.php" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
                 </div>
             </div>
         </div>

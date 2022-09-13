@@ -1,8 +1,4 @@
-<?php 
-include "../connections.php"
 
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +17,7 @@ include "../connections.php"
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- JavaScript -->
+    <script type="text/javascript" src="../static/js/homeScript.js"></script>
 </head>
 <body>
     <div class="header">
@@ -47,6 +44,7 @@ include "../connections.php"
         </div>
     </div> 
 </div>
+<!-- Home Banner -->
 <div class="home">
     <div class="small-container">
         <div class="row">
@@ -67,22 +65,32 @@ include "../connections.php"
     <div class="small-container1">
         <h2 class="title">Our Products</h2>
         <div class="row1">
-            <div class="col-3">
-                <img src="../assets/Home_Assets/vanitymirror1.jpg" alt="vanity">
-                <h4>Vanity Mirror</h4>
-                <a href="#" class="order-btn">Order Now</a>
+            <div class="product-content">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/products/vanitymirror1.jpg" alt="vanity">
+                    <h4>Vanity Mirror</h4>
+                    <a href="#" class="order-btn">Order Now</a>
+                </div>
+                <hr class="vertical">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/products/kitchencab1.jpg" alt="kcabinet">
+                    <h4>Kitchen Cabinet</h4>
+                    <a href="#" class="order-btn">Order Now</a>
+                </div>
+                <hr class="vertical">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/products/clothescab1.jpg" alt="Ccabinet">
+                    <h4>Clothes Cabinet</h4>
+                    <a href="#" class="order-btn">Order Now</a>
+                </div>
+                <hr class="vertical">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/products/readymirror1.jpg" alt="Rmirror">
+                    <h4>Ready made mirror</h4>
+                    <a href="#" class="order-btn">Order Now</a>
+                </div>
             </div>
-            <div class="col-3">
-                <img src="../assets/Home_Assets/kitchencab1.jpg" alt="kcabinet">
-                <h4>Kitchen Cabinet</h4>
-                <a href="#" class="order-btn">Order Now</a>
-            </div>
-            <div class="col-3">
-                <img src="../assets/Home_Assets/clothescab1.jpg" alt="Ccabinet">
-                <h4>Clothes Cabinet</h4>
-                <a href="#" class="order-btn">Order Now</a>
-            </div>
-            <a href="../views/products.php" class="view-btn">View More</a>
+            <a href="../views/products.php" class="view-btn">View More<i class="bi bi-chevron-double-right"></i></a>
         </div>
     </div>
 </div>
@@ -90,10 +98,93 @@ include "../connections.php"
 <div class="services">
     <div class="small-container1">
         <h2 class="title">Our Services</h2>
-        <div class="row1">
+        <div class="row2">
+        <div class="col-4">
+        <button id="but1" onclick="openDoor()">Door</button>
+        <button id="but2" onclick="openWindow()">Window</button>
+        <button id="but3" onclick="openProduct()">Other</button>
+        <hr>
+        </div>
+            <!-- Door tab -->
+            <div id="content1" class="services-content">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/Services/door/slidingdoor1.jpg" alt="sliding door">
+                    <h4>Installation of sliding door</h4>
+                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                </div>
+                <hr class="vertical">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/Services/door/swingdoorwF.jpg " alt="swingdoorw/frame">
+                    <h4>Installation of swing door with frame</h4>
+                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                </div>
+                <hr class="vertical">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/Services/door/screendoor1.jpg " alt="swingdoorw/oframe">
+                    <h4>Installation of screen door</h4>
+                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                </div>
+                <hr class="vertical">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/Services/door/doorrealignment.jpg " alt="Realignment">
+                    <h4>Glass door re-alignment</h4>
+                    <a href="#" class="view-btn2" style="margin-top: 40px;">View More<i class="bi bi-chevron-double-right"></i></a>
+                </div>
+            </div>
+            <!-- window tab -->
+            <div id="content2" class="services-content">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/Services/window/slidingwindow1.jpg" alt="sliding window">
+                    <h4 >Installation of sliding window</h4>
+                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                </div>
+                <hr class="vertical">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/Services/window/awningwindow1.jpg " alt="awning window">
+                    <h4 >Installation of awning window</h4>
+                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                </div>
+                <hr class="vertical">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/Services/window/jalousiewindow1.jpg " alt="swingdoorw/oframe">
+                    <h4>Installation of jalousie window</h4>
+                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                </div>
+                <hr class="vertical">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/Services/window/fixedglass1.jpg " alt="Realignment">
+                    <h4>Installation of fixed glass window</h4>
+                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                </div>
+            </div>
+            <!-- Products installation tab -->
+            <div id="content3" class="services-content">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/Services/product/gymmirror1.jpg" alt="gym mirror">
+                    <h4>Installation of Gym Mirrors</h4>
+                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                </div>
+                <hr class="vertical">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/Services/product/partition1.jpg " alt="drywall partitions">
+                    <h4>Installation of drywall partitions</h4>
+                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                </div>
+                <hr class="vertical">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/Services/product/ceiling1.jpg " alt="swingdoorw/oframe">
+                    <h4>Installation of all kinds of ceiling</h4>
+                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                </div>
+                <hr class="vertical">
+                <div class="content-img">
+                    <img src="../assets/Home_Assets/Services/product/kitchencabinet1.jpg" alt="Realignment">
+                    <h4>Installation of kitchen Cabinets</h4>
+                    <a href="#" class="view-btn2">View More<i class="bi bi-chevron-double-right"></i></a>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-
 </div>
 <!-- About Us -->
 <div class="about">
@@ -106,7 +197,7 @@ include "../connections.php"
                 <a href="../views/aboutpage.php" class="btn">Read More</i></a>
             </div>
             <div class="col-2-5">
-                <img class="about-img" src="../assets/Home_Assets/abthouse.jpg">
+                <img class="about-img" src="../assets/Home_Assets/Imgs/abthouse.jpg">
             </div>
         </div>
     </div>
@@ -119,19 +210,19 @@ include "../connections.php"
             <div class="col-5">
                 <i class="bi bi-tools"></i>
                 <h3>Low Maintenance</h3>
-                <p>Recognizing the unique requirements of our clients and service each as an individual.</p>
+                <p class="why">Recognizing the unique requirements of our clients and service each as an individual.</p>
                 <br>
             </div>
             <div class="col-5">
                 <i class="bi bi-award"></i>
                 <h3>Best Quality</h3>
-                <p>We offer the best quality to our clients and a wide range of glass types available.</p>
+                <p class="why">We offer the best quality to our clients and a wide range of glass types available.</p>
                 <br>
             </div>
             <div class="col-5">
                 <i class="bi bi-check2-all"></i>
                 <h3>Custom Made</h3>
-                <p>Our products are custom & Beveled Designed which are made according your expectations.</p>
+                <p class="why">Our products are custom & Beveled Designed which are made according your expectations.</p>
             </div>
         </div>   
     </div>
@@ -139,7 +230,7 @@ include "../connections.php"
 <!-- footer -->
 <div class="footer">
     <div class="ftcontainer">
-        <div class="row">
+        <div class="ftRrow">
             <div class="footer-col-1">
                 <h3>Where we are?</h3>
                 <ul>
@@ -163,7 +254,7 @@ include "../connections.php"
         <hr>
     <div class="bottoms">
         <ul><li><a href="">Terms and Conditions</a></li></ul>
-        <p>©2022 | Batangas State University Student's.</p>
+        <p>Copyright ©2022 | Batangas State University Student's.</p>
         <ul><li><a href="">Privacy and Policy</a></li></ul>
     </div>
     </div>

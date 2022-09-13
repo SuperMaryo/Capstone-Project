@@ -9,6 +9,7 @@ $unameErr = $passwrdErr = "";
 
 $uname = $password = "";
 
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username
     if(empty(($_POST["usrname"]))) {
@@ -43,24 +44,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['id'] = $usr_id;
 
                 if($usr_role == "1") {
-                    header("Location: admin/index.php");
+                    header("Location: ../admin/index.php");
                 }else{
                     header("Location: homepage.php");
                 }
             }
             else {
-                echo '<script>alert("Invalid Input!")</script>';
+                echo "<script>alert('Your email or password doesn't match')</script>";
                 echo '<script>window.location"../views/LogInpage.php"</script>';
-                 }
-        }
+             }
     }
     else
         {
-            echo '<script>alert("Invalid Input!")</script>';
+            echo "<script>alert('Invalid Input!')</script>";
             echo '<script>window.location"../views/LogInpage.php"</script>';
         }
+    }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -75,8 +75,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../static/css/global.css">
     <link rel="stylesheet" href="../static/css/login.css">
     <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" 
-    rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/adminpage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <!-- cdn -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
@@ -84,8 +86,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../sweetalert2/jquery-3.6.1.min.js"></script>
-    <script src="../sweetalert2/sweetalert2.all.min.js"></script>
+    <!-- JS -->
 
 </head>
 <body>

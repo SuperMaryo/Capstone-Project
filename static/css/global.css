@@ -5,7 +5,7 @@
     padding:    0px;
 }
 body{
-    font-family: 'Prompt', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 .logo img {
     width: 70%;
@@ -15,7 +15,6 @@ body{
 }
 .container {
     max-width: 1300px;
-    margin: auto;
     padding-left: 25px;
     padding-right: 25px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
@@ -45,7 +44,7 @@ a {
     text-decoration: none;
     color: #555;
     font-size: 17px;
-    transition: 0.3s;
+    transition: 1s;
 }
 .navbar nav ul li a:hover {
     font-weight: 600;
@@ -61,6 +60,7 @@ p {
 .header {
     background: #2fccf8;
     height: 150px;
+    z-index: 100;
 }
 .dropdown {
     position: relative;

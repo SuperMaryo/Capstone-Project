@@ -1,0 +1,74 @@
+body .bookContainer{
+    height: 150vh;
+    justify-content: center;
+    background-color: #fff;
+    align-items: center;
+    padding: 50px 0;
+    display: flex;
+}
+.small-container {
+    max-width: 800px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    margin-top: -300px;
+    height: auto;
+    border: 1px solid #2fccf8;
+}
+.small-container .title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    margin-bottom: 15px;
+}
+.small-container .title::before{
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 30px;
+    background: #2fccf8;
+    left: 0;
+    bottom: 0;
+}   
+.small-container form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+form .user-details .input-box {
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+.user-details .input-box .details {
+    display: block;
+    font-weight: 500px;
+    margin-bottom: 5px;
+}
+.user-details .input-box input[type="text"], input[type="email"], input[type="tel"], input[type="date"]
+{
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #555;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 15px;
+    font-size: 16px;
+}
+form .button input[type="submit"]
+{
+    height: 45px;
+    width: 30%;
+    outline: none;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    background: #2fccf8;
+    margin-left: 250px;
+}
