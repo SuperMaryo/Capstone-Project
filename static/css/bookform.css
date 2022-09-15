@@ -12,7 +12,7 @@ body .bookContainer{
     background: #fff;
     padding: 25px 30px;
     border-radius: 5px;
-    margin-top: -300px;
+    margin-top: -200px;
     height: auto;
     border: 1px solid #2fccf8;
 }
@@ -71,4 +71,5 @@ form .button input[type="submit"]
     border-radius: 5px;
     background: #2fccf8;
     margin-left: 250px;
+    margin-top: 20px;
 }
