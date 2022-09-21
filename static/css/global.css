@@ -44,7 +44,7 @@ a {
     text-decoration: none;
     color: #555;
     font-size: 17px;
-    transition: 1s;
+    transition: 0.3s;
 }
 .navbar nav ul li a:hover {
     font-weight: 600;
@@ -65,6 +65,7 @@ p {
 .dropdown {
     position: relative;
     display: inline-block;
+    transition: 1s;
 }
 .dropdown-content 
 {
@@ -85,7 +86,7 @@ p {
     text-decoration: none;
     display: block;
     font-size: 15px;
-    transition: 0.5s;
+    transition: 1s;
 }
 .dropdown .dropdown-content a:hover {
     background: #2fccf8;

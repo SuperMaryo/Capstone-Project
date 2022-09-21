@@ -14,7 +14,7 @@ body .lgnContainer{
     background: #fff;
     padding: 25px 30px;
     border-radius: 5px;
-    margin-top: -125px;
+    margin-top: -110px;
     border: 1px solid #2fccf8;
 }
 .lgnsmall-container .title {
@@ -57,7 +57,9 @@ form .lgn-details .input-box {
     font-size: 16px;
     margin-bottom: 15px;
 }
-
+.lgn-details .input-box input[type="text"]:focus, input[type="password"]:focus {
+    border: 1px solid #2fccf8;
+}
 form .button input[type="submit"]
 {
     height: 40px;

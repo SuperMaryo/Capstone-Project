@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container2 {
+    height: 100vh;
+    max-width: 50%;
+    margin-left: 280px;
+}
+.prodtitle {
+    margin-left: 50%;
+}
+.productForm {
+    margin-bottom: 10px ;
+}

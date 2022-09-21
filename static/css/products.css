@@ -1,5 +1,6 @@
+
 .product-page {
-    background: rgba(242, 242, 242, 0.733);
+    background: #2fccf8;
     margin-top: 5px;
 }
 .small-container{
@@ -20,4 +21,49 @@
     margin-top: 20%;
     font-size: 40px;
     font-weight: 400px;
+}
+/* content */
+.proContainer {
+    display: flex;
+}
+.prodCard {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+    width: 300px;
+    height: 455px;
+    margin: 20px 10px;
+    padding: 10px;
+    text-align: center;
+}
+.prodCard .prodImg img {
+    width: 260px;
+    height: 280px;
+
+}
+.smallContainer h4{
+    margin-bottom: 5px;
+    text-align: center;
+}
+.smallContainer p {
+    font-size: 16px;
+}
+.smallContainer .price {
+    margin-bottom: 10px;
+}
+.smallContainer .orderbtn {
+    width: 180px;
+    height: 40px;
+    color: #fff;
+    background: #2fccf8;
+    border-radius: 10px;
+    padding: 2px 5px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+.smallContainer .avl {
+    text-align: left;
+    color: grey;
+}
+.smallContainer .line {
+    margin-top: 5px;
 }

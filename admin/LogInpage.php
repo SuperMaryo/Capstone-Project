@@ -8,59 +8,6 @@ $conn = connection();
 $unameErr = $passwrdErr = "";
 
 $uname = $password = "";
-
-
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    // username
-    if(empty(($_POST["usrname"]))) {
-        $unameErr = "Username is required";
-    }else 
-    {
-        $uname = $_POST["usrname"];
-    }
-
-    if(empty($_POST["passwrd"])){
-        $passwrdErr = "Password is required";
-    }else
-    {
-        $password = $_POST["passwrd"];
-    }
-
-    if($uname && $password){
-        $checkUname = mysqli_query($conn, "SELECT * FROM user WHERE username = '$uname' ");
-        $checkUnameRow = mysqli_num_rows($checkUname);
-
-        if($checkUnameRow > 0) {
-            while($row = mysqli_fetch_assoc($checkUname)) {
-                $usr_id = $row["id"];
-                $usr_password = $row["password"];
-                $usr_role = $row["role"];
-            }
-
-            if(md5($password) == $usr_password){
-                session_start();
-
-                $_SESSION['role'] = $usr_role;
-                $_SESSION['id'] = $usr_id;
-
-                if($usr_role == "1") {
-                    header("Location: ../admin/index.php");
-                }else{
-                    header("Location: homepage.php");
-                }
-            }
-            else {
-                echo "<script>alert('Your email or password doesn't match')</script>";
-                echo '<script>window.location"../views/LogInpage.php"</script>';
-             }
-    }
-    else
-        {
-            echo "<script>alert('Invalid Input!')</script>";
-            echo '<script>window.location"../views/LogInpage.php"</script>';
-        }
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -86,7 +33,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- JS -->
+    <script src="../sweetalert2/jquery-3.6.1.min.js"></script>
+    <script src="../sweetalert2/sweetalert2.all.min.js"></script>
+    
 
 </head>
 <body>
@@ -121,9 +70,65 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="button">
                     <input type="submit" value="Log In">
                 </div>
-                <p>Don't have an account?</p>
-                <li class="rgstrnw"><a class="rgstr" href="../views/registerpage.php">Register Now</a></li>
+                <li class="rgstrnw"><a class="rgstr" href="../views/registerpage.php">Forgot Password?</a></li>
              </form>
+             <!-- form validations -->
+             <?php
+
+             if($_SERVER["REQUEST_METHOD"] == "POST") {
+                // username
+                if(empty(($_POST["usrname"]))) {
+                    $unameErr = "Username is required";
+                }else 
+                {
+                    $uname = $_POST["usrname"];
+                }
+            
+                if(empty($_POST["passwrd"])){
+                    $passwrdErr = "Password is required";
+                }else
+                {
+                    $password = $_POST["passwrd"];
+                }
+            
+                if($uname && $password){
+                    $checkUname = mysqli_query($conn, "SELECT * FROM user WHERE username = '$uname' ");
+                    $checkUnameRow = mysqli_num_rows($checkUname);
+            
+                    if($checkUnameRow > 0) {
+                        while($row = mysqli_fetch_assoc($checkUname)) {
+                            $usr_id = $row["id"];
+                            $usr_password = $row["password"];
+                            $usr_role = $row["role"];
+                        }
+            
+                        if(md5($password) == $usr_password){
+                            session_start();
+            
+                            $_SESSION['role'] = $usr_role;
+                            $_SESSION['id'] = $usr_id;
+            
+                            if($usr_role == "1") {
+                                header("Location: ../admin/dashboard.php");
+                            }
+                        }
+                        else {
+                            echo "<script>Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Your password is incorrect!',
+                                confirmButtonColor: '#2fccf8'
+                              })</script>";
+                         }
+                }
+                else
+                    {
+                        echo "<script>alert('Invalid Input!')</script>";
+                        echo '<script>window.location"../views/LogInpage.php"</script>';
+                    }
+                }
+            }
+            ?>
           </div>
       </div>
 </div>

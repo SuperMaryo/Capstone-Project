@@ -38,8 +38,9 @@
     min-width: 300px;
 }
 .col-3 img {
-    width: 90%;
-    padding: 70px 20px;
+    width: 500px;
+    height: 426px;
+    padding: 80px 20px;
 }
 .col-3 h2{
     margin-left: 10px;
