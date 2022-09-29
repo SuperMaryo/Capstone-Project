@@ -59,12 +59,12 @@ $uname = $password = "";
                     <div class="input-box">
                         <span class="details">Username</span>
                         <input type="text" name="usrname" placeholder="Enter your username" value="<?php echo $uname ?>">
-                        <?php echo $unameErr?>
+                        
                     </div>
                     <div class="input-box">
                         <span class="details">Password</span>
                         <input type="password" name="passwrd" placeholder="Enter your password">
-                        <?php echo $passwrdErr?>
+                        <span style="color: #555; font-size: 13px;">password is case sensitive</span>
                     </div>
                 </div>
                 <div class="button">
@@ -116,7 +116,7 @@ $uname = $password = "";
                             echo "<script>Swal.fire({
                                 icon: 'error',
                                 title: 'Error',
-                                text: 'Your email or password is incorrect!',
+                                text: 'Your password is incorrect!',
                                 confirmButtonColor: '#2fccf8'
                               })</script>";
                          }
@@ -126,7 +126,7 @@ $uname = $password = "";
                         echo "<script>Swal.fire({
                             icon: 'error',
                             title: 'Error',
-                            text: 'You email or password is incorrect!',
+                            text: 'You email is incorrect!',
                             confirmButtonColor: '#2fccf8'
                           })</script>";
                     }

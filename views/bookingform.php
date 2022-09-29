@@ -1,3 +1,10 @@
+<?php
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        session_start();
+        $_SESSION["email"] = $_POST["email"];
+        echo "<script> window.location.href = 'otp.php'</script>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,7 +64,7 @@
 </div>
 <div class="bookContainer">
     <div class="bookform">
-        <form action="">
+        <form action="" method="post">
             <div class="formContainer">
                 <div class="input-box">
                     <span class="input-titles">First Name</span>
@@ -71,7 +78,7 @@
             <div class="formContainer">
                 <div class="input-box">
                     <span class="input-titles">Email Address</span>
-                    <input type="email" placeholder="Enter Your Email Address" required>
+                    <input name="email" type="email" placeholder="Enter Your Email Address" required>
                 </div>
                 <div class="input-box">
                     <span class="input-titles">Phone Number</span>
@@ -93,13 +100,13 @@
             <div class="formContainer">
                 <div class="input-box">
                     <span class="input-titles">Service Category</span>
-                    <input type="radio" id="doorCateg" value="door" name="radioCat" onclick="doorSelect()">
+                    <input type="radio" id="doorCateg" value="1" name="radioCat" onclick="doorSelect(this)">
                     <label for="doorCateg">Door</label>
 
-                    <input type="radio" id="windowCateg" value="window" name="radioCat" onclick="windowSelect()">
+                    <input type="radio" id="windowCateg" value="2" name="radioCat" onclick="windowSelect()">
                     <label for="windowCateg">Window</label>
 
-                    <input type="radio" id="ceilingCateg" value="ceiling" name="radioCat" onclick="ceilingSelect()">
+                    <input type="radio" id="ceilingCateg" value="3" name="radioCat" onclick="ceilingSelect()">
                     <label for="ceilingCateg">Ceiling</label>
 
                     <span class="input-titles">Service Type</span>
@@ -111,29 +118,14 @@
                         <option value="4">Glass Door Repair</option>
                         <option value="5">Glass Door Re-alignment</option>
                     </select>
-                    <!-- Window Selections -->
-                    <select name="windowSelect" id="windowSelections">
-                        <option value="0"></option>
-                        <option value="1">Sliding Window Installation</option>
-                        <option value="2">Swing window Installation</option>
-                        <option value="3">Screen window Repair</option>
-                        <option value="5">Glass window Re-alignment</option>
-                    </select>
-                    <!-- Ceiling Selections -->
-                    <select name="ceilingSelect" id="ceilingSelections">
-                        <option value="0"></option>
-                        <option value="1">Sliding Door Installation</option>
-                        <option value="2">Swing Door Installation</option>
-                        <option value="3">Screen Door Installation</option>
-                        <option value="4">Glass Door Repair</option>
-                        <option value="5">Glass Door Re-alignment</option>
-                    </select>
                     <span class="input-titles">Other Details</span>
                     <textarea name="sDetails" id="sDetails" cols="30" rows="10" placeholder="Other Details"></textarea>
                 </div>
             </div>
+            <input type="submit" name="submit" value="submit" class="bksubmit">
         </form>
     </div>
 </div>
+
 </body>
 </html>

@@ -32,10 +32,10 @@
             <ul>
                 <li  style="background: #2fccf8;"><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="adminProd.php">Products</a></li>
-                <li><a href="#">Services</a></li>
+                <li><a href="adminSvc.php">Services</a></li>
                 <li><a href="#">Transactions</a></li>
-                <br><br><br><br><br>
-                <li><a onclick="deleteStorage()" href="../logout.php" class="lg-btn">Log Out</a></li>
+                <br><br><br><br><br><br><br><br><br><br>
+                <li><a href="../logout.php" class="lg-btn" onclick="deleteStorage()">Log Out</a></li>
             </ul>
         </nav>
     </div>
@@ -45,7 +45,7 @@
   <iframe title="Human trafficking anlaysis" width="100%" height="500" src="https://app.powerbi.com/reportEmbed?reportId=18da7229-c250-478d-b239-2736b339659c&autoAuth=true&ctid=3846e0dc-10ee-4999-9125-5ca8d87e2931" frameborder="0" allowFullScreen="true"></iframe>
   </div>
 </div>
- <!-- sweet alert delete modal -->
+ <!-- sweet alert log out modal -->
  <script type="text/javascript">
       $('.lg-btn').on('click', function(e){
         e.preventDefault();
@@ -62,6 +62,9 @@
         }).then((result) => {
           if (result.value) {
               document.location.href = href;
+          }
+          else {
+            result.dismiss === Swal.DismissReason.cancel
           }
     })
       })

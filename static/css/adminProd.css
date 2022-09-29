@@ -10,7 +10,7 @@
     margin-left: 280px;
 }
 .small-container2 {
-    margin-left: -15px;
+    margin-left: -25px;
     padding: 5px;
 }
 .prodtitle {
@@ -46,9 +46,9 @@ form .input-box input[type="text"]:focus, input[type="number"]:focus, input[type
     border: 1px solid #2fccf8;
 }
 form input[type="submit"]{
-    height: 40px;
-    margin-left: 30%;
-    width: 30%;
+    height: 45px;
+    margin-left: 40%;
+    width: 150px;
     outline: none;
     color: #fff;
     border: none;
@@ -57,7 +57,6 @@ form input[type="submit"]{
     letter-spacing: 1px;
     border-radius: 5px;
     background: #2fccf8;
-    margin-top: 20px;
     cursor: pointer;
 }
 hr {
@@ -76,3 +75,22 @@ table {
   }
   
   tr:nth-child(even){background-color: #f2f2f2}
+
+  table tr .editbtn {
+    background-color: #2fccf8;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  table tr .deletebtn {
+    background-color: #d33;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }

@@ -32,9 +32,9 @@
             <ul>
                 <li><a href="dashboard.php">Dashboard</a></li>
                 <li style="background: #2fccf8;"><a href="adminProd.php">Products</a></li>
-                <li><a href="#">Services</a></li>
+                <li><a href="adminSvc.php">Services</a></li>
                 <li><a href="#">Transactions</a></li>
-                <br><br><br><br><br>
+                <br><br><br><br><br><br><br><br><br><br>
                 <li><a onclick="deleteStorage()" href="../logout.php" class="lg-btn">Log Out</a></li>
             </ul>
         </nav>
@@ -64,6 +64,34 @@
 <!-- Uploading new item -->
 <div class="container2">
     <div class="small-container2">
+    <h2>Product Table</h2>
+        <!-- Product table -->
+        <div style="overflow-x:auto;">
+            <table>
+                <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Product Category</th>
+                <th>Product Quantity</th>
+                <th>Product Price</th>
+                <th>Product Details</th>
+                <th>Option 1</th>
+                <th>Option 2</th>
+                </tr>
+                <tr>
+                <td>1</td>
+                <td>Vanity Mirror</td>
+                <td>Mirror</td>
+                <td>3</td>
+                <td>P4,000</td>
+                <td>Dimentions and colors</td>
+                <td><button type="button" class="editbtn">Edit</button></td>
+                <td><button type="button" class="deletebtn">Delete</button></td>
+                </tr>
+            </table>
+        </div>
+        <hr class="line">
+        <!-- Uploading new item -->
         <div class="prodContent">
                 <h2>Upload new products here</h2>
         </div>
@@ -105,37 +133,11 @@
                     </div>
                 </div>
                 <div class="uploadBtn">
-                    <input type="submit" value="Upload" name="upload">
+                    <input type="submit" value="Save" name="upload">
                 </div>
             </div>
         </form>
         <hr class="line">
-<!-- Product table -->
-<div style="overflow-x:auto;">
-<h2>Product Table</h2>
-  <table>
-    <tr>
-      <th>Product ID</th>
-      <th>Product Name</th>
-      <th>Product Category</th>
-      <th>Product Quantity</th>
-      <th>Product Price</th>
-      <th>Product Details</th>
-      <th>Option 1</th>
-      <th>Option 2</th>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Vanity Mirror</td>
-      <td>Mirror</td>
-      <td>3</td>
-      <td>P4,000</td>
-      <td>Dimentions and colors</td>
-      <td><button type="button">Edit</button></td>
-      <td><button type="button">Delete</button></td>
-    </tr>
-  </table>
-</div>
     </div>
 </div>
 <script type="text/javascript">
