@@ -22,11 +22,9 @@
         <nav>
             <ul>
                 <li><a href="dashboard.php">Dashboard</a></li>
-                <li><a href="#">Orders</a></li>
                 <li><a href="adminProd.php">Products</a></li>
                 <li><a href="#">Services</a></li>
-                <li style="background: #2fccf8;"><a href="adminCompleted.php">Projects</a></li>
-                <li><a href="#">Admin Profile</a></li>
+                <li><a href="#">Transactions</a></li>
                 <br><br><br><br><br><br><br><br><br>
                 <li><a href="../logout.php">Log Out</a></li>
             </ul>

@@ -31,17 +31,42 @@
         <nav>
             <ul>
                 <li  style="background: #2fccf8;"><a href="dashboard.php">Dashboard</a></li>
-                <li><a href="#">Orders</a></li>
                 <li><a href="adminProd.php">Products</a></li>
                 <li><a href="#">Services</a></li>
-                <li><a href="adminCompleted.php">Projects</a></li>
-                <li><a href="#">Admin Profile</a></li>
-                <br><br><br><br><br><br><br><br><br>
-                <li><a onclick="deleteStorage()" href="../logout.php">Log Out</a></li>
+                <li><a href="#">Transactions</a></li>
+                <br><br><br><br><br>
+                <li><a onclick="deleteStorage()" href="../logout.php" class="lg-btn">Log Out</a></li>
             </ul>
         </nav>
     </div>
 </div>
+<div class="container2">
+  <div class="small-container">
+  <iframe title="Human trafficking anlaysis" width="100%" height="500" src="https://app.powerbi.com/reportEmbed?reportId=18da7229-c250-478d-b239-2736b339659c&autoAuth=true&ctid=3846e0dc-10ee-4999-9125-5ca8d87e2931" frameborder="0" allowFullScreen="true"></iframe>
+  </div>
+</div>
+ <!-- sweet alert delete modal -->
+ <script type="text/javascript">
+      $('.lg-btn').on('click', function(e){
+        e.preventDefault();
+        const href = $(this).attr('href');
+
+        Swal.fire({
+        title: 'Are you sure',
+        text: "You want to log out?",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#2fccf8',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+        }).then((result) => {
+          if (result.value) {
+              document.location.href = href;
+          }
+    })
+      })
+    </script>
+<!-- sweetalert script -->
 <script type="text/javascript">
       var alerted = localStorage.getItem('alerted') || '';
       if (alerted != 'yes') {

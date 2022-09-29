@@ -92,7 +92,7 @@ $uname = $password = "";
                 }
             
                 if($uname && $password){
-                    $checkUname = mysqli_query($conn, "SELECT * FROM user WHERE username = '$uname' ");
+                    $checkUname = mysqli_query($conn, "SELECT * FROM adminuser WHERE username = '$uname' ");
                     $checkUnameRow = mysqli_num_rows($checkUname);
             
                     if($checkUnameRow > 0) {
@@ -116,15 +116,19 @@ $uname = $password = "";
                             echo "<script>Swal.fire({
                                 icon: 'error',
                                 title: 'Error',
-                                text: 'Your password is incorrect!',
+                                text: 'Your email or password is incorrect!',
                                 confirmButtonColor: '#2fccf8'
                               })</script>";
                          }
                 }
                 else
                     {
-                        echo "<script>alert('Invalid Input!')</script>";
-                        echo '<script>window.location"../views/LogInpage.php"</script>';
+                        echo "<script>Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'You email or password is incorrect!',
+                            confirmButtonColor: '#2fccf8'
+                          })</script>";
                     }
                 }
             }

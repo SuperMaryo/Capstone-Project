@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="../static/css/global.css">
     <link rel="stylesheet" href="../static/css/bookform.css">
     <!-- fonts -->
-    <link rel="stylesheet" href="../static/css/adminpage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
@@ -32,7 +31,14 @@
                     <li><a href="../views/homepage.php">Home</a></li>
                     <li><a href="../views/products.php">Products</a></li>
                     <li><a href="../views/completed.php">Completed Projects</a></li>
-                    <li><a href="../views/services.php">Services<i class="bi bi-chevron-compact-down"></i></a></li>
+                    <div class="dropdown">
+                        <li><a>Services<i class="bi bi-chevron-compact-down"></i></a></li>
+                        <div class="dropdown-content">
+                            <a href="svcDoor.php">Door</a>
+                            <a href="svcWindow.php">Window</a>
+                            <a href="otherSvc.php">Other</a>
+                        </div>
+                    </div>
                     <li><a href="../views/aboutpage.php">About</a></li>
                 </ul>
             </nav>
@@ -80,14 +86,14 @@
                     <input type="text" placeholder="Municipality" required>
                 </div>
                 <div class="input-box">
-                    <span class="input-titles">Home Visit Date:</span>
+                    <span class="input-titles">Area Visit Date:</span>
                     <input type="date" required>
                 </div>
             </div>
             <div class="formContainer">
                 <div class="input-box">
                     <span class="input-titles">Service Category</span>
-                    <input type="radio" id="doorCateg" value="door" name="radioCat" onchange="doorSelect()">
+                    <input type="radio" id="doorCateg" value="door" name="radioCat" onclick="doorSelect()">
                     <label for="doorCateg">Door</label>
 
                     <input type="radio" id="windowCateg" value="window" name="radioCat" onclick="windowSelect()">

@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="../static/css/global.css">
     <link rel="stylesheet" href="../static/css/about.css">
     <!-- fonts -->
-    <link rel="stylesheet" href="../static/css/adminpage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
@@ -30,7 +29,14 @@
                     <li><a href="../views/homepage.php">Home</a></li>
                     <li><a href="../views/products.php">Products</a></li>
                     <li><a href="../views/completed.php">Completed Projects</a></li>
-                    <li><a href="../views/services.php">Services<i class="bi bi-chevron-compact-down"></i></a></li>
+                    <div class="dropdown">
+                        <li><a>Services<i class="bi bi-chevron-compact-down"></i></a></li>
+                        <div class="dropdown-content">
+                            <a href="svcDoor.php">Door</a>
+                            <a href="svcWindow.php">Window</a>
+                            <a href="otherSvc.php">Other</a>
+                        </div>
+                    </div>
                     <li><a href="../views/aboutpage.php" style="font-weight: 600;">About</a></li>
                 </ul>
             </nav>

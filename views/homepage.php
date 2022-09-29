@@ -34,15 +34,8 @@
                         <li><a>Services<i class="bi bi-chevron-compact-down"></i></a></li>
                         <div class="dropdown-content">
                             <a href="svcDoor.php">Door</a>
-                            <hr>
                             <a href="svcWindow.php">Window</a>
-                            <hr>
-                            <a href="#">Ceiling</a>
-                            <hr>
-                            <a href="#">Cabinets</a>
-                            <hr>
-                            <a href="#">Glass & Mirrors</a>
-                            <hr>
+                            <a href="otherSvc.php">Other</a>
                         </div>
                     </div>
                     <li><a href="../views/aboutpage.php">About</a></li>
@@ -135,7 +128,7 @@
                 <div class="content-img">
                     <img src="../assets/Home_Assets/Services/door/doorrealignment.jpg " alt="Realignment">
                     <h4>Glass door re-alignment</h4>
-                    <a href="../views/svcDoor.php" class="view-btn2" style="margin-top: 40px;">View More<i class="bi bi-chevron-double-right"></i></a>
+                    <a href="../views/svcDoor.php#doorRepair" class="view-btn2" style="margin-top: 40px;">View More<i class="bi bi-chevron-double-right"></i></a>
                 </div>
             </div>
             <!-- window tab -->
