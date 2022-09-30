@@ -1,4 +1,5 @@
 <?php
+
     session_start();
     if(!$_SESSION["code"]){
         $code = rand(100000, 999999);
@@ -26,33 +27,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Otp</title>
+    <link rel="stylesheet" href="../static/css/otp.css">
+    <!-- fonts -->
+    <link rel="stylesheet" href="../static/css/adminpage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <!-- sweetalert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../sweetalert2/jquery-3.6.1.min.js"></script>
     <script src="../sweetalert2/sweetalert2.all.min.js"></script>
 </head>
 <body>
-    <form method="POST">
-        <h3>Enter The 6-digit code</h3>
-        <input type="number" name="vcode" placeholder="enter 6-digit code here">
-        <input type="submit" value="verify" name="verify">
-    </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-50">
+                <img src="../assets/Admin_img/otpimg.png" alt="" style="width: 500px;">
+            </div>
+            <div class="col-50">
+            <form method="POST">
+            <h2>Email Verfication</h2>
+                <h3>Enter The 6-digit code sent to </h3> <h1><?php echo $_SESSION["email"] ?></h1>
+                <input type="number" name="vcode" placeholder="enter 6-digit code here" maxlength="6">
+                <input type="submit" value="verify" name="verify">
+            </form>
+             </div>
+        </div>
+    </div>
     <?php
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         if(isset($_POST["verify"])) {
             if($_SESSION["code"] == $_POST["vcode"]){
-                echo "<script>
+                echo "  <script>
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: 'Logged In!',
+                    title: 'Request Submitted!',
                     showConfirmButton: false,
                     timer: 1500
-                    })
-                    </script>";
+                    }).then(function () {
 
-                    header("Location: homepage.php");
+                    document.location.href = 'bookingform.php';
+                    
+                    });
+                 </script>";
             }
+            else {
+                echo "<script>Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Your pin is incorrect!',
+                    confirmButtonColor: '#2fccf8'
+                  })</script>";
+             }
         }
     }
     ?>

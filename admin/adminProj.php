@@ -7,7 +7,7 @@
     <title>Admin Dashboard</title>
 
     <link rel="stylesheet" href="../static/css/adminpage.css">
-    <link rel="stylesheet" href="../static/css/adminSvc.css">
+    <link rel="stylesheet" href="../static/css/adminProj.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../sweetalert2/jquery-3.6.1.min.js"></script>
     <script src="../sweetalert2/sweetalert2.all.min.js"></script>
-    
+
     <script>
       function deleteStorage(){
         localStorage.clear();
@@ -32,10 +32,10 @@
             <ul>
                 <li><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="adminProd.php">Products</a></li>
-                <li><a href="adminSvc.php">Services</a></li>
-                <li><a href="#">Transactions</a></li>
+                <li  style="background: #2fccf8;"><a href="adminProj.php">Projects</a></li>
+                <li><a href="pending.php">Pending Requests</a></li>
                 <br><br><br><br><br><br><br><br><br><br>
-                <li><a onclick="deleteStorage()" href="../logout.php" class="lg-btn">Log Out</a></li>
+                <li><a href="#" class="lg-btn">Log Out</a></li>
             </ul>
         </nav>
     </div>
@@ -55,8 +55,12 @@
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes'
         }).then((result) => {
-          if (result.value) {
-              document.location.href = href;
+            if (result.value) {
+                deleteStorage();
+              document.location.href = "../logout.php";
+          }
+          else {
+            result.dismiss === Swal.DismissReason.cancel
           }
     })
       })
@@ -64,31 +68,27 @@
 <!-- Project Upload form -->
 <div class="container2">
     <div class="small-container2">
-    <h2>Booking table</h2>
+    <h2>Projects table</h2>
         <!-- Product table -->
         <div style="overflow-x:auto;">
             <table>
                 <tr>
-                <th>Customer ID</th>
-                <th>Customer Name</th>
-                <th>Customer Email</th>
-                <th>Address</th>
-                <th>Service ID</th>
-                <th>Category</th>
+                <th>Project ID</th>
+                <th>Project Title</th>
+                <th>Client Name</th>
                 <th>Details</th>
+                <th>Project Images</th>
                 <th>Option 1</th>
                 <th>Option 2</th>
                 </tr>
                 <tr>
                 <td>1</td>
+                <td>Home Renovation</td>
                 <td>Marnel Valentin</td>
-                <td>Mvalentin@gmail.com</td>
-                <td>Kumintang</td>
-                <td>1,2,3</td>
-                <td>All</td>
-                <td>Dimentions and colors</td>
-                <td><button type="button" class="apbtn">Approve</button></td>
-                <td><button type="button" class="rjbtn">Reject</button></td>
+                <td>Kumintang Ilaya</td>
+                <td>img</td>
+                <td><button type="button" class="apbtn">Edit</button></td>
+                <td><button type="button" class="rjbtn">Delete</button></td>
                 </tr>
             </table>
         </div>
@@ -119,8 +119,10 @@
                 <input type="submit" value="Save" name="upload">
             </form>
         </div>
+        <hr class="line">
     </div>
 </div>
+<!-- sweetalert script -->
 <script type="text/javascript">
       var alerted = localStorage.getItem('alerted') || '';
       if (alerted != 'yes') {

@@ -2,6 +2,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         session_start();
         $_SESSION["email"] = $_POST["email"];
+        $_SESSION["code"] = "";
         echo "<script> window.location.href = 'otp.php'</script>";
     }
 ?>
@@ -100,17 +101,17 @@
             <div class="formContainer">
                 <div class="input-box">
                     <span class="input-titles">Service Category</span>
-                    <input type="radio" id="doorCateg" value="1" name="radioCat" onclick="doorSelect(this)">
+                    <input type="radio" id="doorCateg" value="1" name="radioCat" checked="checked">
                     <label for="doorCateg">Door</label>
 
-                    <input type="radio" id="windowCateg" value="2" name="radioCat" onclick="windowSelect()">
+                    <input type="radio" id="windowCateg" value="2" name="radioCat">
                     <label for="windowCateg">Window</label>
 
-                    <input type="radio" id="ceilingCateg" value="3" name="radioCat" onclick="ceilingSelect()">
+                    <input type="radio" id="ceilingCateg" value="3" name="radioCat">
                     <label for="ceilingCateg">Ceiling</label>
 
                     <span class="input-titles">Service Type</span>
-                    <select name="doorSelect" id="doorSelections">
+                    <select name="doorSelect" id="doorSelections" required>
                         <option id="option1" value="0"></option>
                         <option id="option2" value="1">Sliding Door Installation</option>
                         <option value="2">Swing Door Installation</option>
@@ -118,14 +119,11 @@
                         <option value="4">Glass Door Repair</option>
                         <option value="5">Glass Door Re-alignment</option>
                     </select>
-                    <span class="input-titles">Other Details</span>
-                    <textarea name="sDetails" id="sDetails" cols="30" rows="10" placeholder="Other Details"></textarea>
                 </div>
             </div>
-            <input type="submit" name="submit" value="submit" class="bksubmit">
+            <input type="submit" name="submit" value="submit">
         </form>
     </div>
 </div>
-
 </body>
 </html>

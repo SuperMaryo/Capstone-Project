@@ -15,7 +15,6 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../sweetalert2/jquery-3.6.1.min.js"></script>
     <script src="../sweetalert2/sweetalert2.all.min.js"></script>
-    
     <script>
       function deleteStorage(){
         localStorage.clear();
@@ -32,10 +31,10 @@
             <ul>
                 <li><a href="dashboard.php">Dashboard</a></li>
                 <li style="background: #2fccf8;"><a href="adminProd.php">Products</a></li>
-                <li><a href="adminSvc.php">Services</a></li>
-                <li><a href="#">Transactions</a></li>
+                <li><a href="adminProj.php">Projects</a></li>
+                <li><a href="pending.php">Pending Requests</a></li>
                 <br><br><br><br><br><br><br><br><br><br>
-                <li><a onclick="deleteStorage()" href="../logout.php" class="lg-btn">Log Out</a></li>
+                <li><a href="#" class="lg-btn">Log Out</a></li>
             </ul>
         </nav>
     </div>
@@ -55,8 +54,12 @@
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes'
         }).then((result) => {
-          if (result.value) {
-              document.location.href = href;
+            if (result.value) {
+                deleteStorage();
+              document.location.href = "../logout.php";
+          }
+          else {
+            result.dismiss === Swal.DismissReason.cancel
           }
     })
       })
@@ -140,6 +143,7 @@
         <hr class="line">
     </div>
 </div>
+<!-- sweetalert script -->
 <script type="text/javascript">
       var alerted = localStorage.getItem('alerted') || '';
       if (alerted != 'yes') {

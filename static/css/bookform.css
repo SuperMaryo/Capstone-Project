@@ -24,6 +24,7 @@
 /* content */
 .bookContainer {
     padding: 50px 100px;
+    background: rgba(242, 242, 242, 0.733);
 }
 .formContainer {
     display: flex;
@@ -53,13 +54,18 @@
     justify-content: space-evenly;
     margin-bottom: 20px;
 }
-.formContainer .input-box textarea {
-    width: 100%;
+form input[type="submit"] {
+    height: 45px;
+    margin-left: 40%;
+    width: 200px;
     outline: none;
-}
-form .bksubmit {
-    width: 250px;
+    color: #fff;
     border: none;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
     border-radius: 5px;
-    height: 150px;
+    background: #2fccf8;
+    cursor: pointer;
+    margin-top: 10px;
 }

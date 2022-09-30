@@ -7,7 +7,7 @@
     <title>Admin Dashboard</title>
 
     <link rel="stylesheet" href="../static/css/adminpage.css">
-    <link rel="stylesheet" href="../static/css/adminProd.css">
+    <link rel="stylesheet" href="../static/css/pending.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
@@ -30,23 +30,18 @@
         </div>
         <nav>
             <ul>
-                <li  style="background: #2fccf8;"><a href="dashboard.php">Dashboard</a></li>
+                <li><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="adminProd.php">Products</a></li>
                 <li><a href="adminProj.php">Projects</a></li>
-                <li><a href="pending.php">Pending Requests</a></li>
+                <li  style="background: #2fccf8;"><a href="pending.php">Pending Requests</a></li>
                 <br><br><br><br><br><br><br><br><br><br>
-                <li><a href="#" class="lg-btn" >Log Out</a></li>
+                <li><a href="#" class="lg-btn">Log Out</a></li>
             </ul>
         </nav>
     </div>
 </div>
-<div class="container2">
-  <div class="small-container">
-  <iframe title="Human trafficking anlaysis" width="100%" height="500" src="https://app.powerbi.com/reportEmbed?reportId=18da7229-c250-478d-b239-2736b339659c&autoAuth=true&ctid=3846e0dc-10ee-4999-9125-5ca8d87e2931" frameborder="0" allowFullScreen="true"></iframe>
-  </div>
-</div>
- <!-- sweet alert log out modal -->
- <script type="text/javascript">
+<!-- sweet alert log out modal -->
+<script type="text/javascript">
       $('.lg-btn').on('click', function(e){
         e.preventDefault();
         const href = $(this).attr('href');
@@ -60,8 +55,8 @@
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes'
         }).then((result) => {
-          if (result.value) {
-              deleteStorage();
+            if (result.value) {
+                deleteStorage();
               document.location.href = "../logout.php";
           }
           else {
@@ -69,7 +64,7 @@
           }
     })
       })
-    </script>
+</script>
 <!-- sweetalert script -->
 <script type="text/javascript">
       var alerted = localStorage.getItem('alerted') || '';

@@ -20,22 +20,7 @@ body {
 .row .col-50 {
     flex-basis: 40%;
 }
-.col-50 .title {
-    font-size: 25px;
-    font-weight: 500;
-    position: relative;
-    margin-bottom: 15px;
-}
-.col-50 .title::before {
-    content: '';
-    position: absolute;
-    height: 3px;
-    width: 30px;
-    background: #2fccf8;
-    left: 0;
-    bottom: 0;
-}
-form input[type="text"], input[type="password"] {
+form input[type="number"] {
     height: 45px;
     width: 100%;
     outline: none;
@@ -46,22 +31,13 @@ form input[type="text"], input[type="password"] {
     text-align: center;
     letter-spacing: 1px;
 }
-form li {
-    margin-top: 10px;
-    list-style: none;
-}
-form li .rgstr {
-    text-decoration: none;
-    color: #555;
-    font-size: 13px;
-}
-form li .rgstr:hover {
-    color: #2fccf8;
+h3 {
+    font-weight: 100;
 }
 form input[type="submit"]{
     height: 45px;
-    margin-left: 25%;
-    width: 200px;
+    margin-left: 30%;
+    width: 150px;
     outline: none;
     color: #fff;
     border: none;
@@ -71,11 +47,6 @@ form input[type="submit"]{
     border-radius: 5px;
     background: #2fccf8;
     cursor: pointer;
-    margin-top: 10px;
-}
-form .button input[type="submit"]:hover 
-{
-    opacity: 0.8;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
