@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,37 +99,37 @@
         <div class="prodContent">
                 <h2>Upload new products here</h2>
         </div>
-        <form action="" method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <div class="details">
                 <div class="productForm">
                     <div class="input-box">
                         <span class="formSpan">Product Name</span>
-                        <input type="text" placeholder="Enter Product Name" required>
+                        <input type="text" name="ProdName" placeholder="Enter Product Name" required>
                     </div>
                     <div class="input-box">
                         <span class="formSpan">Product Category</span>
-                        <select name="pcategory" id="pcategory" class="pcateg" required>
+                        <select id="pcategory" class="pcateg" name="ProdCateg" required>
                             <option value="0"></option>
-                            <option value="Mirror">Mirror</option>
-                            <option value="Clothes">Clothes Cabinet</option>
-                            <option value="Kitchen">Kitchen Cabinet</option>
+                            <option value="1">Mirror</option>
+                            <option value="2">Clothes Cabinet</option>
+                            <option value="3">Kitchen Cabinet</option>
                         </select>
                     </div>
                 </div>
                 <div class="productForm">
                     <div class="input-box">
                         <span class="formSpan">Product Price</span>
-                        <input type="number" placeholder="₱" required>
+                        <input type="number" placeholder="₱" name="ProdPrice" required>
                     </div>
                     <div class="input-box">
                         <span class="formSpan">Product Image</span>
-                        <input type="file" placeholder="Enter Product Image" multiple="multiple" required>
+                        <input type="file" name="fileToUpload" placeholder="Enter Product Image" required>
                     </div>
                 </div>
                 <div class="productForm">
                     <div class="input-box">
                         <span class="formSpan">Product Quantity</span>
-                        <input type="number" placeholder="Enter product quantity" required>
+                        <input type="number" placeholder="Enter product quantity" name="ProdQuan" required>
                     </div>
                     <div class="input-box">
                         <span class="formSpan">Product Details</span>
@@ -143,6 +144,120 @@
         <hr class="line">
     </div>
 </div>
+<!-- upload new items -->
+<?php
+    require "../connections.php";
+    $conn = connection();
+
+      $ProductName = $ProductCategory = $ProductPrice = $ProductQuan = $ProductImg = $ProductDetails = "";
+      $ProductNameErr = $ProductCategoryErr = $ProductPriceErr = $ProductQuanErr = $ProductImgErr = $ProductDetailsErr = "";
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        if(empty($_POST["ProdName"])){
+            $ProductNameErr = "Product Name is required";
+        }
+        else {
+            $ProductName = $_POST["ProdName"];
+        }
+        if(empty($_POST["ProdCateg"])){
+            $ProductCategoryErr = "Category is required";
+        }
+        else {
+            $ProductCategory = $_POST["ProdCateg"];
+        }
+        if(empty($_POST["ProdPrice"])){
+            $ProductPriceErr = "Price is required";
+        }
+        else {
+            $ProductPrice = $_POST["ProdPrice"];
+        }
+        if(empty($_POST["ProdQuan"])){
+            $ProductQuanErr = "Quantity is required";
+        }
+        else {
+            $ProductQuan = $_POST["ProdQuan"];
+        }
+        if(empty($_FILES["fileToUpload"])){
+            $ProductImgErr = "Image is required";
+        }
+        else {
+            $ProductImg = $_FILES["fileToUpload"]["name"];
+        }
+
+        if($ProductName){
+
+            if($ProductQuan > 0){
+                $status = "availabe";
+            }
+            else{
+                $status = "Sold";
+            }
+            $target_dir = "../assets/Product_Assets/";
+            $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+            $uploadOk = 1;
+            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    
+            // Check if image file is a actual image or fake image
+            if(isset($_POST["upload"])) {
+            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+            if($check !== false) {
+                echo "File is an image - " . $check["mime"] . ".";
+                $uploadOk = 1;
+            } else {
+                echo "File is not an image.";
+                $uploadOk = 0;
+            }
+            }
+    
+            // Check if file already exists
+            if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+            }
+    
+            // Check file size
+            if ($_FILES["fileToUpload"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+            }
+    
+            // Allow certain file formats
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif" ) {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+            }
+    
+            // Check if $uploadOk is set to 0 by an error
+            if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+            } else {
+            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+            } else {
+                // echo "Sorry, there was an error uploading your file.";
+            }
+            }
+    
+            $ProdUpload = mysqli_query($conn, "INSERT INTO product_info (prod_name, prod_categ, prod_price, prod_qty, prod_details, prod_img, prod_status) VALUES ('$ProductName', ' $ProductCategory',  '$ProductPrice', '$ProductQuan', '$ProductDetails', '$ProductImg', '$status')");
+            echo "  <script>
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Product Uploaded',
+                    showConfirmButton: false,
+                    timer: 1500
+                    }).then(function () {
+
+                    document.location.href = 'adminProd.php';
+                    
+                    });
+                 </script>";
+        }
+            }
+
+?>
 <!-- sweetalert script -->
 <script type="text/javascript">
       var alerted = localStorage.getItem('alerted') || '';

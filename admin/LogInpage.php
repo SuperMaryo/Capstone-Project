@@ -1,6 +1,6 @@
 <?php
 
-include "../connections.php";
+require "../connections.php";
 
 $conn = connection();
 
