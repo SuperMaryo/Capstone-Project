@@ -1,5 +1,5 @@
 .services-page {
-    background: #2fccf8;
+    background: rgba(242, 242, 242, 0.733);
     margin-top: 5px;
 }
 .small-container{
@@ -24,7 +24,6 @@
 /* content */
 .bookContainer {
     padding: 50px 100px;
-    background: rgba(242, 242, 242, 0.733);
 }
 .formContainer {
     display: flex;

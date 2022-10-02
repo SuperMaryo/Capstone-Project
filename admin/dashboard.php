@@ -7,7 +7,7 @@
     <title>Admin Dashboard</title>
 
     <link rel="stylesheet" href="../static/css/adminpage.css">
-    <link rel="stylesheet" href="../static/css/adminProd.css">
+    <link rel="stylesheet" href="../static/css/admindash.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@
 </div>
 <div class="container2">
   <div class="small-container">
-  <iframe title="Human trafficking anlaysis" width="100%" height="500" src="https://app.powerbi.com/reportEmbed?reportId=18da7229-c250-478d-b239-2736b339659c&autoAuth=true&ctid=3846e0dc-10ee-4999-9125-5ca8d87e2931" frameborder="0" allowFullScreen="true"></iframe>
+  <iframe title="Human trafficking anlaysis" width="100%" height="800" src="https://app.powerbi.com/reportEmbed?reportId=18da7229-c250-478d-b239-2736b339659c&autoAuth=true&ctid=3846e0dc-10ee-4999-9125-5ca8d87e2931" frameborder="0" allowFullScreen="true"></iframe>
   </div>
 </div>
  <!-- sweet alert log out modal -->

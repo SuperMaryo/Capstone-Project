@@ -54,18 +54,30 @@
     </div>
 </div>
 <!-- Product Content -->
+<?php 
+    require "../connections.php";
+    $conn = connection();
+
+    $fetchdata = mysqli_query($conn, "SELECT * FROM product_info");
+    while($row = mysqli_fetch_assoc($fetchdata)){
+        if($row["prod_qty"] > 0){
+    ?>
 <div class="prodContainer">
     <div class="prodCard">
         <div class="prodImg">
-            <img src="../assets/Product_Assets/Mirror/2003-vanitymirror1.jpg" alt="">
+            <img src="../assets/Product_Assets/<?php echo $row["prod_img"];?>" alt="">
         </div>
         <div class="smallContainer">
-            <h4><b>Vanity Mirror</b></h4>
-            <P>Mirror</P>
-            <p class="price">₱4,000</p>
+            <h4><b><?php echo $row["prod_name"]; ?></b></h4>
+            <P><?php echo $row["prod_categ"]; ?></P>
+            <p class="price">₱<?php echo $row["prod_price"]; ?></p>
             <button href="#" class=orderbtn >Buy Now</button>
             <hr class="line">
-            <P class="avl">available: </P>
+            <P class="avl">available: <?php echo $row["prod_qty"]; ?> </P>
+    <?php 
+            }
+        }
+    ?>
         </div>
     </div>
 </div>

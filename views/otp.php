@@ -42,12 +42,12 @@
     <div class="container">
         <div class="row">
             <div class="col-50">
-                <img src="../assets/Admin_img/otpimg.png" alt="" style="width: 500px;">
+                <img src="../assets/Admin_img/verify.png" alt="" style="width: 500px;">
             </div>
             <div class="col-50">
             <form method="POST">
-            <h2>Email Verfication</h2>
-                <h3>Enter The 6-digit code sent to </h3> <h1><?php echo $_SESSION["email"] ?></h1>
+            <h1>Email Verfication</h1>
+                <p>Enter The 6-digit code sent to</p> <h3><?php echo $_SESSION["email"] ?></h3>
                 <input type="number" name="vcode" placeholder="enter 6-digit code here" maxlength="6">
                 <input type="submit" value="verify" name="verify">
             </form>

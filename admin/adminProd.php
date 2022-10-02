@@ -73,25 +73,38 @@
         <div style="overflow-x:auto;">
             <table>
                 <tr>
-                <th>Product ID</th>
-                <th>Product Name</th>
-                <th>Product Category</th>
-                <th>Product Quantity</th>
-                <th>Product Price</th>
-                <th>Product Details</th>
-                <th>Option 1</th>
-                <th>Option 2</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Details</th>
+                <th>Status</th>
+                <th>Options</th>
                 </tr>
+        <?php 
+             require "../connections.php";
+             $conn = connection();
+
+             $fetchdata = mysqli_query($conn, "SELECT * FROM product_info");
+             while($row = mysqli_fetch_assoc($fetchdata)){
+                    if($row["prod_qty"] > 0){
+             
+            ?>
                 <tr>
-                <td>1</td>
-                <td>Vanity Mirror</td>
-                <td>Mirror</td>
-                <td>3</td>
-                <td>P4,000</td>
-                <td>Dimentions and colors</td>
-                <td><button type="button" class="editbtn">Edit</button></td>
-                <td><button type="button" class="deletebtn">Delete</button></td>
+                <td><?php echo $row["prod_id"]; ?></td>
+                <td><?php echo $row["prod_name"]; ?></td>
+                <td><?php echo $row["prod_categ"]; ?></td>
+                <td><?php echo $row["prod_qty"]; ?></td>
+                <td>₱<?php echo $row["prod_price"]; ?></td>
+                <td><?php echo $row["prod_details"]; ?></td>
+                <td><?php echo $row["prod_status"]; ?></td>
+                <td><button type="button" class="editbtn">Edit</button><button type="button" class="deletebtn">Delete</button></td>
                 </tr>
+            <?php 
+                    }
+                }
+                ?>
             </table>
         </div>
         <hr class="line">
@@ -110,9 +123,9 @@
                         <span class="formSpan">Product Category</span>
                         <select id="pcategory" class="pcateg" name="ProdCateg" required>
                             <option value="0"></option>
-                            <option value="1">Mirror</option>
-                            <option value="2">Clothes Cabinet</option>
-                            <option value="3">Kitchen Cabinet</option>
+                            <option value="Mirror">Mirror</option>
+                            <option value="Clothes Cabinet">Clothes Cabinet</option>
+                            <option value="Kitchen Cabinet">Kitchen Cabinet</option>
                         </select>
                     </div>
                 </div>
@@ -146,9 +159,9 @@
 </div>
 <!-- upload new items -->
 <?php
-    require "../connections.php";
-    $conn = connection();
-
+    date_default_timezone_set('Asia/Manila');
+    $date = date("Y/m/d : h:i:s");
+        
       $ProductName = $ProductCategory = $ProductPrice = $ProductQuan = $ProductImg = $ProductDetails = "";
       $ProductNameErr = $ProductCategoryErr = $ProductPriceErr = $ProductQuanErr = $ProductImgErr = $ProductDetailsErr = "";
 
@@ -182,6 +195,12 @@
         }
         else {
             $ProductImg = $_FILES["fileToUpload"]["name"];
+        }
+        if(empty($_POST["details"])){
+             $ProductDetailsErr = "Details is required";
+        }
+        else {
+            $ProductDetails = $_POST["details"];
         }
 
         if($ProductName){
@@ -233,14 +252,14 @@
             echo "Sorry, your file was not uploaded.";
             // if everything is ok, try to upload file
             } else {
-            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-            } else {
-                // echo "Sorry, there was an error uploading your file.";
-            }
+                if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                    // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                } else {
+                    // echo "Sorry, there was an error uploading your file.";
+                }
             }
     
-            $ProdUpload = mysqli_query($conn, "INSERT INTO product_info (prod_name, prod_categ, prod_price, prod_qty, prod_details, prod_img, prod_status) VALUES ('$ProductName', ' $ProductCategory',  '$ProductPrice', '$ProductQuan', '$ProductDetails', '$ProductImg', '$status')");
+            $ProdUpload = mysqli_query($conn, "INSERT INTO product_info (prod_name, prod_categ, prod_price, prod_qty, prod_details, prod_img, prod_status, date_added) VALUES ('$ProductName', ' $ProductCategory',  '$ProductPrice', '$ProductQuan', '$ProductDetails', '$ProductImg', '$status' , CURRENT_TIMESTAMP)");
             echo "  <script>
                 Swal.fire({
                     position: 'top-end',
@@ -255,7 +274,7 @@
                     });
                  </script>";
         }
-            }
+    }
 
 ?>
 <!-- sweetalert script -->

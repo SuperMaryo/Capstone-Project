@@ -54,7 +54,7 @@ $uname = $password = "";
                         <span style="color: #555; font-size: 13px;">password is case sensitive</span>
                     </div>
                 </div>
-                <li><a class="rgstr" href="../views/registerpage.php">Forgot Password?</a></li>
+                <li><a class="rgstr" href="#">Forgot Password?</a></li>
                 <div class="button">
                     <input type="submit" value="Log In">
                 </div>

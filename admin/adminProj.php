@@ -68,52 +68,61 @@
 <!-- Project Upload form -->
 <div class="container2">
     <div class="small-container2">
-    <h2>Projects table</h2>
+    <h2>Project table</h2>
         <!-- Product table -->
         <div style="overflow-x:auto;">
             <table>
                 <tr>
-                <th>Project ID</th>
-                <th>Project Title</th>
+                <th>ID</th>
+                <th>Title</th>
                 <th>Client Name</th>
-                <th>Details</th>
-                <th>Project Images</th>
-                <th>Option 1</th>
-                <th>Option 2</th>
+                <th>Location</th>
+                <th>Images</th>
+                <th>Options</th>
                 </tr>
+                <?php  
+                    require "../connections.php";
+                    $conn = connection();
+
+                    $fetchdata = mysqli_query($conn, "SELECT * FROM projects");
+                    while($row = mysqli_fetch_assoc($fetchdata)){
+                ?>
                 <tr>
-                <td>1</td>
-                <td>Home Renovation</td>
-                <td>Marnel Valentin</td>
-                <td>Kumintang Ilaya</td>
-                <td>img</td>
-                <td><button type="button" class="apbtn">Edit</button></td>
-                <td><button type="button" class="rjbtn">Delete</button></td>
+                <td><?php echo $row["proj_id"]; ?></td>
+                <td><?php echo $row["proj_title"]; ?></td>
+                <td><?php echo $row["proj_client"]; ?></td>
+                <td><?php echo $row["proj_location"]; ?></td>
+                <td><?php echo $row["proj_img"]; ?></td>
+                <td><button type="button" class="apbtn">Edit</button><button type="button" class="rjbtn">Delete</button></td>
                 </tr>
+
+                <?php
+                    } 
+                ?>
             </table>
         </div>
         <hr class="line">
         <div class="upload-form">
             <h2>Upload Finished Projects Here</h2>
-            <form action="">
+            <form method="POST" enctype="multipart/form-data">
                 <div class="formContainer">
                     <div class="input-box">
                         <span class="formlabel">Project Title</span>
-                        <input type="text" placeholder="Enter project title here" required>
+                        <input type="text" name="projTitle" placeholder="Enter project title here" required>
                     </div>
                     <div class="input-box">
-                        <span class="formlabel">Client name (Optional)</span>
-                        <input type="text" placeholder="Enter Client name here">
+                        <span class="formlabel">Client name</span>
+                        <input type="text" name="clientName" placeholder="Enter Client name here">
                     </div>
                 </div>
                 <div class="formContainer">
                     <div class="input-box">
-                        <span class="formlabel">Project Details</span>
-                        <input type="text" placeholder="Enter project details here" required>
+                        <span class="formlabel">Project Location</span>
+                        <input type="text" name="location" placeholder="Enter project location here" required>
                     </div>
                     <div class="input-box">
                         <span class="formlabel">Project Photos</span>
-                        <input type="file" placeholder="Enter project photo here" required multiple accept="jpg">
+                        <input type="file" name="fileToUpload" placeholder="Enter project photo here" required multiple accept="jpg">
                     </div>
                 </div>
                 <input type="submit" value="Save" name="upload">
@@ -122,6 +131,105 @@
         <hr class="line">
     </div>
 </div>
+<?php
+    date_default_timezone_set('Asia/Manila');
+    $date = date("Y/m/d : h:i:s");
+
+    $projTitle = $clientName = $location = $projImg = "";
+    $projTitleErr = $clientNameErr = $locationErr = $projImgErr = "";
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        if(empty($_POST["projTitle"])){
+            $projTitleErr = "Title is required";
+        }
+        else {
+            $projTitle = $_POST["projTitle"];
+        }
+        if(empty($_POST["clientName"])){
+            $clientNameErr = "Client name is required";
+        }
+        else {
+            $clientName = $_POST["clientName"];
+        }
+        if(empty($_POST["location"])){
+            $locationErr = "location is required";
+        }
+        else {
+            $location  = $_POST["location"];
+        }
+        if(empty($_FILES["fileToUpload"])){
+            $projImgErr = "Image is required";
+        }
+        else {
+            $projImg = $_FILES["fileToUpload"]["name"];
+        }
+
+        if($projTitle){
+            $target_dir = "../assets/Projects_Assets/";
+            $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+            $uploadOk = 1;
+            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+            // Check if image file is a actual image or fake image
+            if(isset($_POST["upload"])) {
+                $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+                if($check !== false) {
+                    echo "File is an image - " . $check["mime"] . ".";
+                    $uploadOk = 1;
+                } else {
+                    echo "File is not an image.";
+                    $uploadOk = 0;
+                }
+                }
+        
+                // Check if file already exists
+                if (file_exists($target_file)) {
+                echo "Sorry, file already exists.";
+                $uploadOk = 0;
+                }
+        
+                // Check file size
+                if ($_FILES["fileToUpload"]["size"] > 500000) {
+                echo "Sorry, your file is too large.";
+                $uploadOk = 0;
+                }
+        
+                // Allow certain file formats
+                if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+                && $imageFileType != "gif" ) {
+                echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                $uploadOk = 0;
+                }
+        
+                // Check if $uploadOk is set to 0 by an error
+                if ($uploadOk == 0) {
+                echo "Sorry, your file was not uploaded.";
+                // if everything is ok, try to upload file
+                } else {
+                if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                    // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                } else {
+                    // echo "Sorry, there was an error uploading your file.";
+                }
+            }
+            $projUpload = mysqli_query($conn, "INSERT INTO projects (proj_title, proj_client, proj_location, proj_img, date_added)VALUES ('$projTitle', '$clientName', '$location', '$projImg', CURRENT_TIMESTAMP )");
+            echo "  <script>
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Project Uploaded',
+                    showConfirmButton: false,
+                    timer: 1500
+                    }).then(function () {
+
+                    document.location.href = 'adminProj.php';
+                    
+                    });
+                 </script>";
+        }
+    }
+
+?>
 <!-- sweetalert script -->
 <script type="text/javascript">
       var alerted = localStorage.getItem('alerted') || '';

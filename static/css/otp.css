@@ -48,6 +48,9 @@ form input[type="submit"]{
     background: #2fccf8;
     cursor: pointer;
 }
+form input[type="submit"]:hover {
+    opacity: 0.8;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

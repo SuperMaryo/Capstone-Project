@@ -23,8 +23,8 @@
     font-weight: 400px;
 }
 /* content */
-.proContainer {
-    display: flex;
+.prodContainer {
+    display: inline-flex;
 }
 .prodCard {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
