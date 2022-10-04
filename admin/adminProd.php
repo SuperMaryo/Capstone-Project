@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Product</title>
+    <?php
+        include "../includes/bscdns.php";
+     ?>
 
     <link rel="stylesheet" href="../static/css/adminpage.css">
     <link rel="stylesheet" href="../static/css/adminProd.css">
@@ -23,7 +26,7 @@
     </script>
 </head>
 <body>
-<div class="container">
+<div class="navContainer">
     <div class="side-nav">
         <div class="page-title">
             <h2>Admin Panel</h2>
@@ -66,27 +69,29 @@
       })
 </script>
 <!-- Uploading new item -->
-<div class="container2">
-    <div class="small-container2">
-    <h2>Product Table</h2>
+<div class="prodContainer">
+    <div class="prodContainer2">
+    <h2>Product Table</h2><button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#exampleModal" style="background: #2fccf8;  border: none;">Add New</button>
         <!-- Product table -->
-        <div style="overflow-x:auto;">
-            <table>
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Details</th>
-                <th>Status</th>
-                <th>Options</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Details</th>
+                    <th>Status</th>
+                    <th>Options</th>
                 </tr>
-        <?php 
+            </thead>
+            <tbody>
+            <?php 
              require "../connections.php";
              $conn = connection();
 
-             $fetchdata = mysqli_query($conn, "SELECT * FROM product_info");
+             $fetchdata = mysqli_query($conn, "SELECT * FROM product_info ORDER BY prod_id DESC");
              while($row = mysqli_fetch_assoc($fetchdata)){
                     if($row["prod_qty"] > 0){
              
@@ -99,62 +104,68 @@
                 <td>₱<?php echo $row["prod_price"]; ?></td>
                 <td><?php echo $row["prod_details"]; ?></td>
                 <td><?php echo $row["prod_status"]; ?></td>
-                <td><button type="button" class="editbtn">Edit</button><button type="button" class="deletebtn">Delete</button></td>
+                <td>
+                    <a href="#" class="btn btn-primary edt-btn" data-toggle="modal" data-target="#editmodal" style="background: #2fccf8;  border: none;"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="#" class="btn btn-danger btn-del"><i class="fa-solid fa-trash-can"></i></a>
                 </tr>
             <?php 
                     }
                 }
                 ?>
+            </tbody>
             </table>
         </div>
         <hr class="line">
-        <!-- Uploading new item -->
-        <div class="prodContent">
-                <h2>Upload new products here</h2>
-        </div>
-        <form method="POST" enctype="multipart/form-data">
-            <div class="details">
-                <div class="productForm">
-                    <div class="input-box">
-                        <span class="formSpan">Product Name</span>
-                        <input type="text" name="ProdName" placeholder="Enter Product Name" required>
+        <!-- ulpload modal-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" enctype="multipart/form-data"> 
+                    <div class="form-group">
+                        <label>Product name</label>
+                        <input type="text" class="form-control" name="ProdName" placeholder="Enter Product Name">
                     </div>
-                    <div class="input-box">
-                        <span class="formSpan">Product Category</span>
-                        <select id="pcategory" class="pcateg" name="ProdCateg" required>
-                            <option value="0"></option>
+                    <div class="form-group">
+                        <label>Product Category</label>
+                        <select class="custom-select" name="ProdCateg" required>
+                            <option value="none">Open this select menu</option>
                             <option value="Mirror">Mirror</option>
                             <option value="Clothes Cabinet">Clothes Cabinet</option>
                             <option value="Kitchen Cabinet">Kitchen Cabinet</option>
                         </select>
                     </div>
-                </div>
-                <div class="productForm">
-                    <div class="input-box">
-                        <span class="formSpan">Product Price</span>
-                        <input type="number" placeholder="₱" name="ProdPrice" required>
+                    <div class="form-group">
+                        <label>Product price</label>
+                        <input type="number" class="form-control" name="ProdPrice" placeholder="₱">
                     </div>
-                    <div class="input-box">
-                        <span class="formSpan">Product Image</span>
-                        <input type="file" name="fileToUpload" placeholder="Enter Product Image" required>
+                    <div class="form-group">
+                        <label>Product Quantity</label>
+                        <input type="number" class="form-control" name="ProdQuan" placeholder="Enter quantity">
                     </div>
-                </div>
-                <div class="productForm">
-                    <div class="input-box">
-                        <span class="formSpan">Product Quantity</span>
-                        <input type="number" placeholder="Enter product quantity" name="ProdQuan" required>
+                    <div class="form-group">
+                        <label>Product image</label>
+                        <input type="file" class="form-control" name="fileToUpload" placeholder="Enter Product Image">
                     </div>
-                    <div class="input-box">
-                        <span class="formSpan">Product Details</span>
-                        <textarea name="details" id="" cols="30" rows="10" placeholder="Describe product"></textarea>
+                    <div class="form-group">
+                        <label>Product Details</label>
+                        <textarea class="form-control" name="details" rows="3" maxlength="255" ></textarea>
                     </div>
-                </div>
-                <div class="uploadBtn">
-                    <input type="submit" value="Save" name="upload">
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-primary text-white" name="upload" value="Save" style="background: #2fccf8; border: none;">
+                    </div>
+                </form>
             </div>
-        </form>
-        <hr class="line">
+            </div>
+        </div>
+        </div>
     </div>
 </div>
 <!-- upload new items -->
@@ -264,14 +275,15 @@
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
+                    iconColor: '#2fccf8',
                     title: 'Product Uploaded',
                     showConfirmButton: false,
                     timer: 1500
                     }).then(function () {
 
-                    document.location.href = 'adminProd.php';
-                    
-                    });
+                        document.location.href = 'adminProd.php';
+                        
+                        });
                  </script>";
         }
     }
@@ -297,6 +309,7 @@
             position: 'top-end',
             icon: 'success',
             title: 'Logged In!',
+            iconColor: '#87adbd',
             showConfirmButton: false,
             timer: 1500
             })

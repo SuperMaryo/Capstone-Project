@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Door Service</title>
+    <title>A's Glass & Aluminum</title>
     <link rel="icon" type="image/x-icon" href="../assets/Global_Assets/favicon.png">
     <!-- CDN -->
     <!-- Custom CSS -->

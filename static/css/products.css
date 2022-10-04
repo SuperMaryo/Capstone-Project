@@ -1,6 +1,9 @@
-
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+body {
+    font-family: 'Poppins', sans-serif;
+}
 .product-page {
-    background: #2fccf8;
+    background: rgba(242, 242, 242, 0.733);
     margin-top: 5px;
 }
 .small-container{
@@ -24,46 +27,33 @@
 }
 /* content */
 .prodContainer {
-    display: inline-flex;
+    display: flex;
+    padding: 10px 5px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 .prodCard {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
-    width: 300px;
-    height: 455px;
-    margin: 20px 10px;
-    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: 10px;
     text-align: center;
+    flex-basis: 50%;
 }
-.prodCard .prodImg img {
-    width: 260px;
-    height: 280px;
-
-}
-.smallContainer h4{
-    margin-bottom: 5px;
-    text-align: center;
-}
-.smallContainer p {
-    font-size: 16px;
-}
-.smallContainer .price {
-    margin-bottom: 10px;
-}
-.smallContainer .orderbtn {
-    width: 180px;
-    height: 40px;
-    color: #fff;
-    background: #2fccf8;
-    border-radius: 10px;
-    padding: 2px 5px;
-    font-size: 15px;
-    border: none;
-    cursor: pointer;
-}
-.smallContainer .avl {
-    text-align: left;
+.price {
     color: grey;
-}
-.smallContainer .line {
-    margin-top: 5px;
-}
+    font-size: 18px;
+  }
+.prodCard button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #2fccf8;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  .prodCard button:hover {
+    opacity: 0.8;
+  }

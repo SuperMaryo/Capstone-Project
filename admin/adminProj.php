@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
 
+    <?php
+        include "../includes/bscdns.php"; 
+    ?>
     <link rel="stylesheet" href="../static/css/adminpage.css">
     <link rel="stylesheet" href="../static/css/adminProj.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +19,8 @@
     <script src="../sweetalert2/jquery-3.6.1.min.js"></script>
     <script src="../sweetalert2/sweetalert2.all.min.js"></script>
 
+    <script src="https://kit.fontawesome.com/a4d41286ed.js" crossorigin="anonymous"></script>
+
     <script>
       function deleteStorage(){
         localStorage.clear();
@@ -23,7 +28,7 @@
     </script>
 </head>
 <body>
-<div class="container">
+<div class="navContainer">
     <div class="side-nav">
         <div class="page-title">
             <h2>Admin Panel</h2>
@@ -57,7 +62,7 @@
         }).then((result) => {
             if (result.value) {
                 deleteStorage();
-              document.location.href = "../logout.php";
+                document.location.href = "../logout.php";
           }
           else {
             result.dismiss === Swal.DismissReason.cancel
@@ -66,77 +71,178 @@
       })
 </script>
 <!-- Project Upload form -->
-<div class="container2">
-    <div class="small-container2">
-    <h2>Project table</h2>
+<div class="tblContainer">
+    <div class="tblSmallContainer">
+    <h2>Project table</h2> <button type="button" class="btn btn-primary mb-2" id="add" data-toggle="modal" data-target="#exampleModal" style="background: #2fccf8;  border: none;">Add New</button>
         <!-- Product table -->
-        <div style="overflow-x:auto;">
-            <table>
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Client Name</th>
-                <th>Location</th>
-                <th>Images</th>
-                <th>Options</th>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Client Name</th>
+                    <th>Location</th>
+                    <th>Images</th>
+                    <th>Details</th>
+                    <th>Options</th>
                 </tr>
+            </thead>
+            <tbody>
                 <?php  
                     require "../connections.php";
                     $conn = connection();
 
-                    $fetchdata = mysqli_query($conn, "SELECT * FROM projects");
+                    $fetchdata = mysqli_query($conn, "SELECT * FROM projects ORDER BY proj_id DESC");
                     while($row = mysqli_fetch_assoc($fetchdata)){
+
                 ?>
                 <tr>
-                <td><?php echo $row["proj_id"]; ?></td>
-                <td><?php echo $row["proj_title"]; ?></td>
-                <td><?php echo $row["proj_client"]; ?></td>
-                <td><?php echo $row["proj_location"]; ?></td>
-                <td><?php echo $row["proj_img"]; ?></td>
-                <td><button type="button" class="apbtn">Edit</button><button type="button" class="rjbtn">Delete</button></td>
+                    <td><?php echo $row["proj_id"]; ?></td>
+                    <td><?php echo $row["proj_title"]; ?></td>
+                    <td><?php echo $row["proj_client"]; ?></td>
+                    <td><?php echo $row["proj_location"]; ?></td>
+                    <td><?php echo $row["proj_img"]; ?></td>
+                    <td><?php echo $row["proj_details"]; ?></td>
+                <td>
+                    <a href="#" class="btn btn-primary edt-btn" data-toggle="modal" data-target="#editmodal" style="background: #2fccf8;  border: none;"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="delete?id=<?php echo $row['proj_id']; ?>" class="btn btn-danger btn-del"><i class="fa-solid fa-trash-can"></i></a>
+                </td>
                 </tr>
-
                 <?php
                     } 
                 ?>
+            </tbody>
             </table>
         </div>
+        <!-- sweet alert log out modal -->
+            <script type="text/javascript">
+                $('.btn-del').on('click', function(e){
+                    e.preventDefault();
+                    const href = $(this).attr('href');
+
+                    Swal.fire({
+                    title: 'Are you sure',
+                    text: "You want to log out?",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#2fccf8',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes'
+                    }).then((result) => {
+                        if (result.value) {
+                            Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Project deleted',
+                            showConfirmButton: false,
+                            timer: 1500
+                            }).then(function () {
+                            
+                            document.location.href = href;
+                            document.location.href = 'adminProj.php';
+
+                            });
+
+                    }
+                    else {
+                        result.dismiss === Swal.DismissReason.cancel
+                    }
+                })
+                })
+            </script>
         <hr class="line">
-        <div class="upload-form">
-            <h2>Upload Finished Projects Here</h2>
+    </div>
+
+<!-- add new Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><strong>Project Details</strong></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
             <form method="POST" enctype="multipart/form-data">
-                <div class="formContainer">
-                    <div class="input-box">
-                        <span class="formlabel">Project Title</span>
-                        <input type="text" name="projTitle" placeholder="Enter project title here" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="formlabel">Client name</span>
-                        <input type="text" name="clientName" placeholder="Enter Client name here">
-                    </div>
+                <div class="form-group">
+                    <label>Project Title</label>
+                    <input type="text" class="form-control" name="projTitle" placeholder="Enter Project Title">
                 </div>
-                <div class="formContainer">
-                    <div class="input-box">
-                        <span class="formlabel">Project Location</span>
-                        <input type="text" name="location" placeholder="Enter project location here" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="formlabel">Project Photos</span>
-                        <input type="file" name="fileToUpload" placeholder="Enter project photo here" required multiple accept="jpg">
-                    </div>
+                <div class="form-group">
+                    <label>Client Name</label>
+                    <input type="text" class="form-control" name="clientName" placeholder="Enter Client Name">
                 </div>
-                <input type="submit" value="Save" name="upload">
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" class="form-control" name="location" placeholder="Enter Project Location">
+                </div>
+                <div class="form-group">
+                    <label>Project Image</label>
+                    <input type="file" class="form-control" name="fileToUpload"  placeholder="Enter Project Image">
+                </div>
+                <div class="form-group">
+                    <label>Details</label>
+                    <textarea class="form-control" name="details" rows="3" maxlength="255" ></textarea>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <input type="submit" class="btn btn-primary text-white" name="upload" value="Save" style="background: #2fccf8; border: none;">
+            </div>
             </form>
+            </div>
+            </div>
         </div>
-        <hr class="line">
+    </div>
+    <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- edit Modal -->
+    <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-hidden="true" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><strong>Update Project Details</strong></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <form method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Project Title</label>
+                    <input type="text" class="form-control" name="projTitle" placeholder="Enter Project Title" >
+                </div>
+                <div class="form-group">
+                    <label>Client Name</label>
+                    <input type="text" class="form-control" name="clientName" placeholder="Enter Client Name">
+                </div>
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" class="form-control" name="location" placeholder="Enter Project Location">
+                </div>
+                <div class="form-group">
+                    <label>Project Image</label>
+                    <input type="file" class="form-control" name="fileToUpload"  placeholder="Enter Project Image">
+                </div>
+                <div class="form-group">
+                    <label>Details</label>
+                    <textarea class="form-control" name="details" rows="3" maxlength="255" ></textarea>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <input type="submit" class="btn btn-primary text-white" name="upload" value="Update" style="background: #2fccf8; border: none;">
+            </div>
+            </form>
+            </div>
+            </div>
+        </div>
     </div>
 </div>
 <?php
     date_default_timezone_set('Asia/Manila');
     $date = date("Y/m/d : h:i:s");
 
-    $projTitle = $clientName = $location = $projImg = "";
-    $projTitleErr = $clientNameErr = $locationErr = $projImgErr = "";
+    $projTitle = $clientName = $location = $projImg = $projDetails = "";
+    $projTitleErr = $clientNameErr = $locationErr = $projImgErr = $projDetailsErr ="";
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         if(empty($_POST["projTitle"])){
@@ -162,6 +268,13 @@
         }
         else {
             $projImg = $_FILES["fileToUpload"]["name"];
+        }
+
+        if(empty($_POST["details"])){
+            $projDetailsErr = "Details is required";
+        }
+        else {
+            $projDetails = $_POST["details"];
         }
 
         if($projTitle){
@@ -212,7 +325,7 @@
                     // echo "Sorry, there was an error uploading your file.";
                 }
             }
-            $projUpload = mysqli_query($conn, "INSERT INTO projects (proj_title, proj_client, proj_location, proj_img, date_added)VALUES ('$projTitle', '$clientName', '$location', '$projImg', CURRENT_TIMESTAMP )");
+            $projUpload = mysqli_query($conn, "INSERT INTO projects (proj_title, proj_client, proj_location, proj_img, proj_details, date_added)VALUES ('$projTitle', '$clientName', '$location', '$projImg', '$projDetails', CURRENT_TIMESTAMP )");
             echo "  <script>
                 Swal.fire({
                     position: 'top-end',
@@ -222,10 +335,10 @@
                     timer: 1500
                     }).then(function () {
 
-                    document.location.href = 'adminProj.php';
-                    
-                    });
-                 </script>";
+                        document.location.href = 'adminProj.php';
+                        
+                        });
+                    </script>";
         }
     }
 
@@ -255,6 +368,13 @@
             })
         localStorage.setItem('alerted','yes');
       }
+</script>
+<script>
+    $(document).ready(function (){
+        $('.edt-btn').on('click', function () {
+            $('#editmodal').modal('show');
+        });
+    });
 </script>
 </body>
 </html>

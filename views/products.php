@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products page</title>
+    <title>A's Glass & Aluminum</title>
     <link rel="icon" type="image/x-icon" href="../assets/Global_Assets/favicon.png">
     <!-- CDN -->
 
@@ -54,32 +54,35 @@
     </div>
 </div>
 <!-- Product Content -->
-<?php 
-    require "../connections.php";
-    $conn = connection();
 
-    $fetchdata = mysqli_query($conn, "SELECT * FROM product_info");
-    while($row = mysqli_fetch_assoc($fetchdata)){
-        if($row["prod_qty"] > 0){
-    ?>
-<div class="prodContainer">
-    <div class="prodCard">
-        <div class="prodImg">
-            <img src="../assets/Product_Assets/<?php echo $row["prod_img"];?>" alt="">
-        </div>
-        <div class="smallContainer">
-            <h4><b><?php echo $row["prod_name"]; ?></b></h4>
-            <P><?php echo $row["prod_categ"]; ?></P>
-            <p class="price">₱<?php echo $row["prod_price"]; ?></p>
-            <button href="#" class=orderbtn >Buy Now</button>
-            <hr class="line">
-            <P class="avl">available: <?php echo $row["prod_qty"]; ?> </P>
+<div class="container">
+    <div class="prodContainer">
     <?php 
+        require "../connections.php";
+        $conn = connection();
+
+        $fetchdata = mysqli_query($conn, "SELECT * FROM product_info ORDER BY prod_id DESC");
+        while($row = mysqli_fetch_assoc($fetchdata)){
+            if($row["prod_qty"] > 0){
+    ?>
+        <div class="prodCard">
+            <img src="../assets/Product_Assets/<?php echo $row["prod_img"];?>" alt="" style="width:100%">
+            <h3><?php echo $row["prod_name"]; ?></h3>
+            <p><?php echo $row["prod_categ"]; ?></p>
+            <p class="price">₱<?php echo $row["prod_price"]; ?></p>
+            <p>available: <?php echo $row["prod_qty"]; ?></p>
+            <p><button href="#" class=orderbtn >Buy Now</button></p>
+        </div>
+        <?php 
             }
         }
     ?>
-        </div>
     </div>
 </div>
+<?php
+    include "../includes/footer.php";
+?>
 </body>
 </html>
+
+        

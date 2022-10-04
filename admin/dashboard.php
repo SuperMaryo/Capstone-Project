@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a4d41286ed.js" crossorigin="anonymous"></script>
     <!-- sweetalert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../sweetalert2/jquery-3.6.1.min.js"></script>
@@ -30,7 +31,7 @@
         </div>
         <nav>
             <ul>
-                <li  style="background: #2fccf8;"><a href="dashboard.php">Dashboard</a></li>
+                <li  style="background: #2fccf8;"><a href="dashboard.php"><i class="fa-sharp fa-solid fa-chart-line"></i>&nbsp; Dashboard</a></li>
                 <li><a href="adminProd.php">Products</a></li>
                 <li><a href="adminProj.php">Projects</a></li>
                 <li><a href="pending.php">Pending Requests</a></li>
@@ -89,6 +90,7 @@
         Swal.fire({
             position: 'top-end',
             icon: 'success',
+            iconColor: '#87adbd',
             title: 'Logged In!',
             showConfirmButton: false,
             timer: 1500
