@@ -78,13 +78,13 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Client Name</th>
-                    <th>Location</th>
-                    <th>Images</th>
-                    <th>Details</th>
-                    <th>Options</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Client Name</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Images</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Options</th>
                 </tr>
             </thead>
             <tbody>
@@ -97,7 +97,7 @@
 
                 ?>
                 <tr>
-                    <td><?php echo $row["proj_id"]; ?></td>
+                    <td scope="row"><?php echo $row["proj_id"]; ?></td>
                     <td><?php echo $row["proj_title"]; ?></td>
                     <td><?php echo $row["proj_client"]; ?></td>
                     <td><?php echo $row["proj_location"]; ?></td>
@@ -206,30 +206,31 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form method="POST" enctype="multipart/form-data">
+            <form action="updateproj.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="update_id" id="update_id">
                 <div class="form-group">
                     <label>Project Title</label>
-                    <input type="text" class="form-control" name="projTitle" placeholder="Enter Project Title" >
+                    <input type="text" class="form-control" id="proj_title" name="projTitle" placeholder="Enter Project Title" >
                 </div>
                 <div class="form-group">
                     <label>Client Name</label>
-                    <input type="text" class="form-control" name="clientName" placeholder="Enter Client Name">
+                    <input type="text" class="form-control" id="proj_client" name="clientName" placeholder="Enter Client Name">
                 </div>
                 <div class="form-group">
                     <label>Location</label>
-                    <input type="text" class="form-control" name="location" placeholder="Enter Project Location">
+                    <input type="text" class="form-control" id="proj_location" name="locations" placeholder="Enter Project Location">
                 </div>
                 <div class="form-group">
                     <label>Project Image</label>
-                    <input type="file" class="form-control" name="fileToUpload"  placeholder="Enter Project Image">
+                    <input type="file" class="form-control" id="proj_img" name="fileToUpload"  placeholder="Enter Project Image">
                 </div>
                 <div class="form-group">
                     <label>Details</label>
-                    <textarea class="form-control" name="details" rows="3" maxlength="255" ></textarea>
+                    <textarea class="form-control" id="proj_details" name="details" rows="3" maxlength="255" ></textarea>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                <input type="submit" class="btn btn-primary text-white" name="upload" value="Update" style="background: #2fccf8; border: none;">
+                <input type="submit" class="btn btn-primary text-white" name="update" value="Update" style="background: #2fccf8; border: none;">
             </div>
             </form>
             </div>
@@ -369,10 +370,31 @@
         localStorage.setItem('alerted','yes');
       }
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
 <script>
     $(document).ready(function (){
         $('.edt-btn').on('click', function () {
             $('#editmodal').modal('show');
+
+            $tr = $(this).closest('tr');
+
+
+            var data = $tr.children('td').map(function() {
+                return $(this).text();
+            }).get();
+
+            console.log(data);
+
+            $('#update_id').val(data[0]);
+            $('#proj_title').val(data[1]);
+            $('#proj_client').val(data[2]);
+            $('#proj_location').val(data[3]);
+            $('#proj_img').val(data[4]);
+            $('#proj_details').val(data[5]);
         });
     });
 </script>

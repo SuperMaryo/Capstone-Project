@@ -106,7 +106,7 @@
                 <td><?php echo $row["prod_status"]; ?></td>
                 <td>
                     <a href="#" class="btn btn-primary edt-btn" data-toggle="modal" data-target="#editmodal" style="background: #2fccf8;  border: none;"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <a href="#" class="btn btn-danger btn-del"><i class="fa-solid fa-trash-can"></i></a>
+                    <a href="proDelete?id=<?php echo $row['prod_id']; ?>" class="btn btn-danger btn-del"><i class="fa-solid fa-trash-can"></i></a>
                 </tr>
             <?php 
                     }
@@ -115,6 +115,42 @@
             </tbody>
             </table>
         </div>
+        <!-- sweet alert log out modal -->
+        <script type="text/javascript">
+                $('.btn-del').on('click', function(e){
+                    e.preventDefault();
+                    const href = $(this).attr('href');
+
+                    Swal.fire({
+                    title: 'Are you sure',
+                    text: "You want delete this product?",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#2fccf8',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes'
+                    }).then((result) => {
+                        if (result.value) {
+                            Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Product deleted',
+                            showConfirmButton: false,
+                            timer: 1500
+                            }).then(function () {
+                            
+                            document.location.href = href;
+                            document.location.href = 'adminProd.php';
+
+                            });
+
+                    }
+                    else {
+                        result.dismiss === Swal.DismissReason.cancel
+                    }
+                })
+                })
+            </script>
         <hr class="line">
         <!-- ulpload modal-->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -158,7 +194,7 @@
                         <textarea class="form-control" name="details" rows="3" maxlength="255" ></textarea>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         <input type="submit" class="btn btn-primary text-white" name="upload" value="Save" style="background: #2fccf8; border: none;">
                     </div>
                 </form>
